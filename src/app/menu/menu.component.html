@@ -1,0 +1,36 @@
+<mat-toolbar color="primary" class="white">
+  <mat-toolbar-row>
+    <a routerLink="home"><img src="../assets/opt.png" alt=""></a>
+    <span class="spacer"></span>
+
+
+
+    <span class="spacer"></span>
+
+      <mat-icon class="shopping-icon"><a routerLink="">add_shopping_cart</a></mat-icon>
+
+      <a  mat-button  [matMenuTriggerFor]="aboveMenu"><mat-icon mat-icon class="person-icon">person</mat-icon></a>
+
+<mat-menu #aboveMenu="matMenu" yPosition="above">
+          <button mat-menu-item ><a routerLink="/login">Connexion</a></button>
+          <button mat-menu-item><a routerLink="/register">S'inscrire</a></button>
+        </mat-menu>
+  </mat-toolbar-row>
+
+  <mat-toolbar-row >
+    <div class="nav2">
+    <a mat-button  routerLink="">marque</a>
+
+    <a mat-button  [matMenuTriggerFor]="belowMenu">Lunettes</a>
+    <mat-menu #belowMenu="matMenu" yPosition="below">
+      <button mat-menu-item ><a routerLink="">Lunettes de soleil</a></button>
+      <button mat-menu-item><a routerLink="">Lunettes de vue</a></button>
+    </mat-menu>
+    <a mat-button routerLink="">Lentilles</a>
+
+    <a mat-button routerLink="">Offres</a>
+
+    <a mat-button routerLink="">Nouveauté</a>
+  </div>
+  </mat-toolbar-row>
+</mat-toolbar>

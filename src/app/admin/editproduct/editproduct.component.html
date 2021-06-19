@@ -1,0 +1,99 @@
+<app-sidebar></app-sidebar>
+<!-- Form
+<div class="inner-wrapper">
+  <form [formGroup]="productForm" (ngSubmit)="updateproductForm()" #resetStudentForm="ngForm" novalidate>
+    <mat-card>
+      <div class="controlers-wrapper">
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="label" formControlName="label">
+
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="description" formControlName="description">
+
+        </mat-form-field>
+
+
+      </div>
+    </mat-card>
+
+
+    <mat-card>
+      <div class="full-wrapper button-wrapper">
+        <div class="button-wrapper">
+          <button mat-flat-button color="warn">Update</button>
+        </div>
+      </div>
+    </mat-card>
+  </form>
+</div>
+ -->
+ <div class="row justify-content-center">
+  <div class="col-md-4 register-employee">
+    <!-- form card register -->
+    <div class="card card-outline-secondary">
+      <div class="card-header">
+        <h3 class="mb-0">modifier produit</h3>
+      </div>
+      <div class="card-body">
+        <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+
+          <div class="form-group">
+            <label for="inputlabel">label</label>
+            <input class="form-control" type="text" formControlName="label">
+            <!-- error -->
+            <div class="invalid-feedback" *ngIf="submitted && myForm.label.errors?.required">
+              Description est obligatoire.
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inputdescription3">description</label>
+            <input class="form-control" type="text" formControlName="description">
+            <!-- error -->
+            <div class="invalid-feedback" *ngIf="submitted && myForm.description.errors?.required">
+              Description est obligatoire.
+            </div>
+          </div>
+<!--
+          <div class="form-group">
+            <label for="inputPassword3">Designation</label>
+            <select class="custom-select form-control" (change)="updateProfile($event.target.value)"
+              formControlName="designation">
+              <option value="">Choose...</option>
+              <option *ngFor="let employeeProfile of EmployeeProfile" value="{{employeeProfile}}">{{employeeProfile}}
+              </option>
+            </select>
+             error
+            <div class="invalid-feedback" *ngIf="submitted && myForm.designation.errors?.required">
+              Choose designation.
+            </div>
+          </div>
+ -->
+          <div class="form-group">
+            <label for="inputVerify3">price</label>
+            <input class="form-control" type="text" formControlName="price">
+            <!-- error -->
+            <div class="invalid-feedback" *ngIf="submitted && myForm.price.errors?.required">
+             price est obligatoire .
+            </div>
+
+          </div>
+          <div class="form-group">
+            <label for="inputVerify3">Quantité</label>
+            <input class="form-control" type="text" formControlName="quantity">
+            <!-- error -->
+            <div class="invalid-feedback" *ngIf="submitted && myForm.quantity.errors?.required">
+             Quantité est obligatoire .
+            </div>
+
+          </div>
+
+          <div class="form-group">
+            <button class="btn btn-success btn-lg btn-block" type="submit">Update</button>
+          </div>
+        </form>
+      </div>
+    </div><!-- form  -->
+  </div>
+</div>

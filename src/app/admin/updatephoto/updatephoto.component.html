@@ -1,0 +1,5 @@
+<label class="upload-button">
+  <button class="btn">Upload a file</button>
+  <input type="file" ngFileSelect [options]="options" (uploadOutput)="onUploadOutput($event)" [uploadInput]="uploadInput"
+      single>
+</label>

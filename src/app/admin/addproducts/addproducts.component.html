@@ -1,0 +1,85 @@
+<app-sidebar></app-sidebar>
+  <mat-card>
+    <mat-card-title>Ajout Produit</mat-card-title>
+    <mat-card-content>
+          <form [formGroup]="ProductForm" class="personal-information" >
+            <div class="alert alert-danger text-center" role="alert" *ngIf="errorMessage">veuillez remplir le champ obligatoire</div>
+            <div class="alert alert-success text-center" role="alert" *ngIf="successMessage">Ajouté avec succes</div>
+            <mat-form-field class="display-block">
+              <input matInput placeholder="label" formControlName="label" required >
+              <div *ngIf="ProductForm.get('label').invalid &&
+                    ProductForm.get('label').errors &&
+                    (ProductForm.get('label').dirty || ProductForm.get('label').touched)">
+                    <small class="text-danger"
+                      *ngIf="ProductForm.get('label').hasError('required')">
+                       Ce champ est obligatoire
+                    </small>
+
+              </div>
+            </mat-form-field>
+
+            <mat-form-field class="display-block">
+              <input matInput placeholder="Description" formControlName="description" required >
+              <div *ngIf="ProductForm.get('description').invalid &&
+              ProductForm.get('description').errors &&
+              (ProductForm.get('description').dirty || ProductForm.get('description').touched)">
+          <small class="text-danger"
+              *ngIf="ProductForm.get('description').hasError('required')">
+              Ce champ est obligatoire
+          </small>
+
+      </div>
+            </mat-form-field>
+
+            <mat-form-field class="display-block">
+              <input matInput placeholder="Prix" formControlName="price" required >
+              <div *ngIf="ProductForm.get('price').invalid &&
+              ProductForm.get('price').errors &&
+              (ProductForm.get('price').dirty || ProductForm.get('price').touched)">
+          <small class="text-danger"
+              *ngIf="ProductForm.get('price').hasError('required')">
+              Ce champ est obligatoire
+          </small>
+
+      </div>
+            </mat-form-field>
+            <mat-form-field class="display-block">
+              <input  type="number" matInput placeholder="Quantité" formControlName="quantity" required>
+              <div *ngIf="ProductForm.get('quantity').invalid &&
+              ProductForm.get('quantity').errors &&
+              (ProductForm.get('quantity').dirty || ProductForm.get('quantity').touched)">
+          <small class="text-danger"
+              *ngIf="ProductForm.get('quantity').hasError('required')">
+              Ce champ est obligatoire
+          </small>
+      </div>
+            </mat-form-field>
+
+<!--<mat-form-field appearance="fill">
+  <mat-label>Categories</mat-label>
+  <mat-select formControlName="categories" multiple>
+    <mat-select-trigger>
+      {{Categorylist.value ? Categorylist.value[0] : ''}}
+      <span *ngIf="Categorylist.value?.length > 1" class="example-additional-selection">
+        (+{{Categorylist.value.length - 1}} {{Categorylist.value?.length === 2 ? 'other' : 'others'}})
+      </span>
+    </mat-select-trigger>
+    <mat-option *ngFor="let categorie of getCategories()" [value]="categorie">{{categorie}}</mat-option>
+  </mat-select>
+</mat-form-field>
+
+<mat-form-field >
+  <mat-label>Your Team</mat-label>
+  <mat-select formControlName="categories" multiple>
+    <mat-option  *ngFor="let element of categoryData" [value]="element._id">
+      {{element?.label}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+-->
+       <button mat-raised-button color="accent" (click)="onSubmit()" [disabled]="ProductForm.invalid" >add product</button>
+
+          </form>
+    </mat-card-content>
+  </mat-card>
+
