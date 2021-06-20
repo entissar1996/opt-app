@@ -3,8 +3,9 @@ export interface User{
   prenom?:string;
   email: string;
   password: string;
-  telephone?: string;
+  phone?: string;
   ville?:string;
+  adresse:string;
   role?: string;
   token?: string;
 }

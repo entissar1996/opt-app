@@ -1,3 +1,4 @@
+
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 mat-sidenav {
     width: 280px;
@@ -13,7 +14,7 @@ mat-sidenav {
 .toolbar-spacer {
     flex: 1 1 auto;
 }
-.avatar {
+.photo {
   margin-left: 50px;
   vertical-align: middle;
 width: 150px;
@@ -24,12 +25,7 @@ height: 150px;
   height: 500px;
   border: 1px solid rgba(0, 0, 0, 0.5);
 }
-.example-sidenav-content {
-  display: flex;
-  height: 100%;
-  align-items: center;
-  justify-content: center;
-}
+
 .example-sidenav {
    user-select: none;
 }
@@ -54,5 +50,35 @@ height: 150px;
   transform: scaleY(1);
 }
 .row{
-  margin-top: 40px;
+  margin-top: 20px;
+}
+.avatar{
+  box-shadow: gray 0.3em 0.3em 0.3em  ;
+}
+
+mat-table{
+  width: 96%;
+  margin: 2%;
+  padding: .5em;
+}
+
+ng-container{
+  width: 15%;
+  margin:3px;
+}
+
+td{
+  padding:2px;
+  width: 17%;
+  height: 20PX;
+}
+
+th{
+  padding:3px;
+}
+.tableau-user{margin-top:2%;
+}
+h2{
+  margin-top: 25px;
+  text-align: center;
 }

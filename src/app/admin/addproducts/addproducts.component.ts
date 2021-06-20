@@ -8,6 +8,7 @@ import { ProductService } from 'src/app/_services/product/product.service';
 import { AdminModule } from "../admin.module";
 import { AngularMaterialModule } from "../../material.module";
 import { Subscription } from 'rxjs';
+import { MatSidenav } from '@angular/material/sidenav';
 export interface Subject {
   name: string;
 }
@@ -26,7 +27,11 @@ export class AddproductsComponent implements OnInit {
     photo:'',
     quantity:null,
   };
-
+  @ViewChild('sidenav') public sidenav: MatSidenav;
+  isExpanded = true;
+  showSubmenu: boolean = false;
+  isShowing = false;
+  showSubSubMenu: boolean = false;
   ProductForm: FormGroup;
   private subscription: Subscription;
   errorMessage;
@@ -72,6 +77,17 @@ export class AddproductsComponent implements OnInit {
 
 
 
+  }
+  mouseenter() {
+    if (!this.isExpanded) {
+      this.isShowing = true;
+    }
+  }
+
+  mouseleave() {
+    if (!this.isExpanded) {
+      this.isShowing = false;
+    }
   }
 
 }

@@ -1,17 +1,13 @@
-<div class="sb-nav-fixed">
+<!--<div class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-            <!-- Navbar Brand-->
             <a class="navbar-brand ps-3" href="">Admin configuration</a>
-            <!-- Sidebar Toggle-->
             <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
-            <!-- Navbar Search-->
             <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
                 <div class="input-group">
                     <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..." aria-describedby="btnNavbarSearch" />
                     <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
                 </div>
             </form>
-            <!-- Navbar-->
             <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
@@ -92,3 +88,116 @@
 
         </div>
 </div>
+-->
+<mat-sidenav-container fullscreen>
+  <mat-sidenav mode="side" #sidenav opened position="start" style="background-color: #E7DEE8;">
+    <img src="assets/1819.png" alt="Avatar" class="avatar">
+    <mat-nav-list>
+			<mat-list-item (click)="showSubmenu = !showSubmenu" class="parent">
+				<span class="full-width" *ngIf="isExpanded || isShowing">Parent Menu</span>
+				<mat-icon mat-list-icon>home</mat-icon>
+				<mat-icon class="menu-button" [ngClass]="{'rotated' : showSubmenu}" *ngIf="isExpanded || isShowing">expand_more</mat-icon>
+			</mat-list-item>
+			<div class="submenu" [ngClass]="{'expanded' : showSubmenu}" *ngIf="isShowing || isExpanded">
+				<a mat-list-item href="...">Submenu Item 1</a>
+				<a mat-list-item href="...">Submenu Item 2</a>
+				<mat-list-item (click)="showSubSubMenu = !showSubSubMenu" class="parent">
+					<span class="full-width" *ngIf="isExpanded || isShowing">Nested Menu</span>
+					<mat-icon class="menu-button" [ngClass]="{'rotated' : showSubSubMenu}" *ngIf="isExpanded || isShowing">expand_more</mat-icon>
+				</mat-list-item>
+				<div class="submenu" [ngClass]="{'expanded' : showSubSubMenu}" *ngIf="isShowing || isExpanded">
+					<mat-list-item>SubSubmenu Item 1</mat-list-item>
+					<mat-list-item>SubSubmenu Item 2</mat-list-item>
+				</div>
+			</div>
+		</mat-nav-list>
+
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="accunt" >
+      <button mat-icon-button (click)="sidenav.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+      Dashboard
+      <span class="toolbar-spacer"></span>
+      <a routerLink="/logout"><mat-icon>person</mat-icon></a>
+      <a routerLink="/logout"><mat-icon>logout</mat-icon></a>
+
+
+    </mat-toolbar>
+
+    <div class="row">
+      <div class="col-lg-3 col-md-6 col-sm-6">
+          <div class="card card-stats">
+              <div class="card-header card-header-warning card-header-icon">
+                  <div class="card-icon">
+                      <i class="material-icons">content_copy</i>
+                  </div>
+                  <p class="card-category">Used Space</p>
+                  <h3 class="card-title">49/50
+                      <small>GB</small>
+                  </h3>
+              </div>
+              <div class="card-footer">
+                  <div class="stats">
+                      <i class="material-icons text-danger">warning</i>
+                      <a href="javascript:void(0)">Get More Space...</a>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="col-lg-3 col-md-6 col-sm-6">
+          <div class="card card-stats">
+              <div class="card-header card-header-success card-header-icon">
+                  <div class="card-icon">
+                      <i class="material-icons">store</i>
+                  </div>
+                  <p class="card-category">Revenue</p>
+                  <h3 class="card-title">$34,245</h3>
+              </div>
+              <div class="card-footer">
+                  <div class="stats">
+                      <i class="material-icons">date_range</i> Last 24 Hours
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="col-lg-3 col-md-6 col-sm-6">
+          <div class="card card-stats">
+              <div class="card-header card-header-danger card-header-icon">
+                  <div class="card-icon">
+                      <i class="material-icons">info_outline</i>
+                  </div>
+                  <p class="card-category">Fixed Issues</p>
+                  <h3 class="card-title">75</h3>
+              </div>
+              <div class="card-footer">
+                  <div class="stats">
+                      <i class="material-icons">local_offer</i> Tracked from Github
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="col-lg-3 col-md-6 col-sm-6">
+          <div class="card card-stats">
+              <div class="card-header card-header-info card-header-icon">
+                  <div class="card-icon">
+                      <i class="fa fa-twitter"></i>
+                  </div>
+                  <p class="card-category">Followers</p>
+                  <h3 class="card-title">+245</h3>
+              </div>
+              <div class="card-footer">
+                  <div class="stats">
+                      <i class="material-icons">update</i> Just Updated
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+
+
+  </mat-sidenav-content>
+
+</mat-sidenav-container>
+

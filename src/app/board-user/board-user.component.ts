@@ -1,7 +1,7 @@
 import { Component, HostListener, OnInit, ViewChild } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
 import { Observable } from 'rxjs';
-import { UserService } from '../_services/auth/user.service';
+import { UsersService } from '../_services/auth/users.service';
 
 @Component({
   selector: 'app-board-user',
@@ -12,10 +12,18 @@ export class BoardUserComponent implements OnInit {
   title = 'app';
   fullscreen$: Observable<boolean>;
 
-  constructor() {
+  content?: string;
 
-  }
+  constructor(private userService: UsersService) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
+    this.userService.getUserBoard().subscribe(
+      data => {
+        this.content = data;
+      },
+      err => {
+        this.content = JSON.parse(err.error).message;
+      }
+    );
   }
 }

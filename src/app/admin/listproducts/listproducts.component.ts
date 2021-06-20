@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
+import { MatSidenav } from '@angular/material/sidenav';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
@@ -22,6 +23,11 @@ export class ListproductsComponent implements OnInit {
   ProductData: any = [];
   dataSource: MatTableDataSource<IProduct>;
   @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild('sidenav') public sidenav: MatSidenav;
+  isExpanded = true;
+  showSubmenu: boolean = false;
+  isShowing = false;
+  showSubSubMenu: boolean = false;
   displayedColumns: string[] = [
     'label', 'brand',
     'price', 'quantity',"price_promo",
@@ -57,7 +63,7 @@ export class ListproductsComponent implements OnInit {
   deleteProduct(id){
     const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
       width: '450px',
-      data: "Do you confirm the deletion of this User? "
+      data: "Confirmez-vous la suppression de cet produit ?  "
     });
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
@@ -94,4 +100,16 @@ export class ListproductsComponent implements OnInit {
     let dialogRef = this.dialog.open(UploaderComponent, {data:{id:id}});
     dialogRef.afterClosed().subscribe(console.log)
   }
+  mouseenter() {
+    if (!this.isExpanded) {
+      this.isShowing = true;
+    }
+  }
+
+  mouseleave() {
+    if (!this.isExpanded) {
+      this.isShowing = false;
+    }
+  }
+
 }

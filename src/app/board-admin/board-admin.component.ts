@@ -1,6 +1,6 @@
 import { Component, HostListener, OnInit, ViewChild } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
-import { UserService } from '../_services/auth/user.service';
+import { UsersService } from '../_services/auth/users.service';
 
 @Component({
   selector: 'app-board-admin',
@@ -9,8 +9,9 @@ import { UserService } from '../_services/auth/user.service';
 })
 export class BoardAdminComponent implements OnInit {
   opened = true;
+  content?: string;
   @ViewChild('sidenav', { static: true }) sidenav: MatSidenav;
-
+constructor(private userService: UsersService){}
   ngOnInit() {
     console.log(window.innerWidth)
     if (window.innerWidth < 768) {
@@ -20,6 +21,14 @@ export class BoardAdminComponent implements OnInit {
       this.sidenav.fixedTopGap = 55;
       this.opened = true;
     }
+    this.userService.getAdminBoard().subscribe(
+      data => {
+        this.content = data;
+      },
+      err => {
+        this.content = JSON.parse(err.error).message;
+      }
+    );
   }
 
   @HostListener('window:resize', ['$event'])
@@ -41,5 +50,9 @@ export class BoardAdminComponent implements OnInit {
       return false;
     }
   }
+
+
+
+
 
 }

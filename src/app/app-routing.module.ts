@@ -20,9 +20,42 @@ import { UpdatephotoComponent } from './admin/updatephoto/updatephoto.component'
 import { UploaderComponent } from './admin/uploader/uploader.component';
 import { WidgetsComponent } from './admin/widgets/widgets.component';
 import { EditproductComponent } from './admin/editproduct/editproduct.component';
+import { ListuserComponent } from './admin/listuser/listuser.component';
+import { AuthGuard } from "./_helpers/auth.guard";
+import { AdminGuard } from "./_helpers/admin.guard";
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
+  { path: 'sidebar', component: SidebarComponent },
+  { path: 'listproduct', component: ListproductsComponent },
+  { path: 'listuser', component: ListuserComponent },
+  {
+    path: 'addproduct',
+    component: AddproductsComponent,
+
+  },
+  /*{path: 'admin',
+  children: [
+    {
+      path: 'add',
+      component: AddproductsComponent,
+      data: { title: 'Add Product' },
+      canActivate: [AuthGuard],
+    },
+    {
+      path: 'listuser',
+      component: ListuserComponent,
+      data: { title: 'List User' },
+      canActivate: [AuthGuard,AdminGuard],
+
+    },
+
+
+  ],}
+
+ */ { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'profile', component: ProfileComponent },
@@ -32,6 +65,7 @@ const routes: Routes = [
   { path: 'listproduct', component:ListproductsComponent  },
   { path: 'upload', component:UploaderComponent  },
   { path: 'dashbord', component:WidgetsComponent  },
+  { path: 'listeuser', component:ListuserComponent  },
 
   { path: 'editproduct/:id', component:EditproductComponent  },
 

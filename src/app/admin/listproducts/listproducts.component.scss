@@ -1,6 +1,7 @@
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
 .photo{
-  height:50px;
-  box-shadow: gray 0.3em 0.3em 0.3em  ;
+  height:35px;
 }
 
 mat-table{
@@ -15,12 +16,65 @@ ng-container{
 }
 
 td{
-  padding:2px;
-  width: 17%;
+  width: 12%;
 }
 
 th{
   padding:3px;
 }
-.container{margin-top:    14%;
-margin-left: 10%;}
+.container{margin-top:  9%;
+margin-left: 3%;}
+
+mat-sidenav {
+    width: 280px;
+    padding:15px;
+}
+.mat-drawer {
+    background-color: #023075;
+    color:#fff
+}
+.main-content {
+    padding:20px;
+}
+.toolbar-spacer {
+    flex: 1 1 auto;
+}
+.avatar {
+  margin-left: 50px;
+  vertical-align: middle;
+width: 150px;
+height: 150px;
+  border-radius: 50%;
+}
+.example-container {
+  height: 500px;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+.example-sidenav {
+   user-select: none;
+}
+.full-width {
+  width: 100%;
+}
+.menu-button {
+  transition: 300ms ease-in-out;
+  transform: rotate(0deg);
+}
+.menu-button.rotated {
+  transform: rotate(180deg);
+}
+.submenu {
+  overflow-y: hidden;
+  transition: transform 300ms ease;
+  transform: scaleY(0);
+  transform-origin: top;
+  padding-left: 30px;
+}
+.submenu.expanded {
+  transform: scaleY(1);
+}
+.row{
+  margin-top: 20px;
+}
+

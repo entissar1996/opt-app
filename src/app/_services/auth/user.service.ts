@@ -36,4 +36,8 @@ export class UserService {
     return this.httpClient.get(`${environment.baseUri}/users/user/${id}`) as Observable<IApiResponse>;
   }
 
+
+
+
+
 }
