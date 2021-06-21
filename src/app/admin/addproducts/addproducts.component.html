@@ -65,7 +65,19 @@
 
                 </div>
               </mat-form-field>
+             <!-- <mat-form-field class="display-block">
+                <input matInput placeholder="brand" formControlName="brand" required >
+                <div *ngIf="ProductForm.get('brand').invalid &&
+                      ProductForm.get('brand').errors &&
+                      (ProductForm.get('brand').dirty || ProductForm.get('brand').touched)">
+                      <small class="text-danger"
+                        *ngIf="ProductForm.get('brand').hasError('required')">
+                         Ce champ est obligatoire
+                      </small>
 
+                </div>
+              </mat-form-field>
+            -->
               <mat-form-field class="display-block">
                 <input matInput placeholder="Description" formControlName="description" required >
                 <div *ngIf="ProductForm.get('description').invalid &&
@@ -89,6 +101,17 @@
                 Ce champ est obligatoire
             </small>
 
+        </div>
+              </mat-form-field>
+              <mat-form-field class="display-block">
+                <input  type="number" matInput placeholder="Prix promotionnel" formControlName="pricepromo" required>
+                <div *ngIf="ProductForm.get('pricepromo').invalid &&
+                ProductForm.get('pricepromo').errors &&
+                (ProductForm.get('pricepromo').dirty || ProductForm.get('pricepromo').touched)">
+            <small class="text-danger"
+                *ngIf="ProductForm.get('pricepromo').hasError('required')">
+                Ce champ est obligatoire
+            </small>
         </div>
               </mat-form-field>
               <mat-form-field class="display-block">

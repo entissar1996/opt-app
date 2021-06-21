@@ -1,3 +1,7 @@
+mat-card{
+  width: 50%;
+  margin: 10% 20%;
+}
 :host {
   display: block;
   padding: 15px;
@@ -10,4 +14,89 @@
 
 .display-block {
   display: block;
+}
+
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+mat-sidenav {
+    width: 280px;
+    padding:15px;
+}
+.mat-drawer {
+    background-color: #023075;
+    color:#fff
+}
+.main-content {
+    padding:20px;
+}
+.toolbar-spacer {
+    flex: 1 1 auto;
+}
+.photo {
+  margin-left: 50px;
+  vertical-align: middle;
+width: 150px;
+height: 150px;
+  border-radius: 50%;
+}
+.example-container {
+  height: 500px;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+.example-sidenav {
+   user-select: none;
+}
+.full-width {
+  width: 100%;
+}
+.menu-button {
+  transition: 300ms ease-in-out;
+  transform: rotate(0deg);
+}
+.menu-button.rotated {
+  transform: rotate(180deg);
+}
+.submenu {
+  overflow-y: hidden;
+  transition: transform 300ms ease;
+  transform: scaleY(0);
+  transform-origin: top;
+  padding-left: 30px;
+}
+.submenu.expanded {
+  transform: scaleY(1);
+}
+.row{
+  margin-top: 20px;
+}
+
+mat-table{
+  width: 96%;
+  margin: 2%;
+  padding: .5em;
+}
+
+ng-container{
+  width: 15%;
+  margin:3px;
+}
+
+td{
+  padding:2px;
+  width: 17%;
+  height: 20PX;
+}
+
+th{
+  padding:3px;
+}
+.tableau-user{margin-top:2%;
+}
+h2{
+  margin-top: 25px;
+  text-align: center;
+}
+.logo{
+  width: 50px;
+  height: 50px;
 }

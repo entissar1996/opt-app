@@ -1,99 +1,133 @@
 <app-sidebar></app-sidebar>
-<!-- Form
-<div class="inner-wrapper">
-  <form [formGroup]="productForm" (ngSubmit)="updateproductForm()" #resetStudentForm="ngForm" novalidate>
+<mat-sidenav-container fullscreen>
+  <mat-sidenav mode="side" #sidenav opened position="start" style="background-color: #E7DEE8;">
+    <img src="assets/1819.png" alt="photo" class="photo">
+    <mat-nav-list>
+			<mat-list-item (click)="showSubmenu = !showSubmenu" class="parent">
+				<span class="full-width" *ngIf="isExpanded || isShowing">Produits</span>
+				<mat-icon mat-list-icon>management</mat-icon>
+				<mat-icon class="menu-button" [ngClass]="{'rotated' : showSubmenu}" *ngIf="isExpanded || isShowing">expand_more</mat-icon>
+			</mat-list-item>
+			<div class="submenu" [ngClass]="{'expanded' : showSubmenu}" *ngIf="isShowing || isExpanded">
+				<a mat-list-item routerLink="addproduct">Ajout un produit</a>
+				<a mat-list-item routerLink="listproduct">Liste du produits</a>
+        <a mat-list-item routerLink="listproduct">Liste des commandes</a>
+				<mat-list-item (click)="showSubSubMenu = !showSubSubMenu" class="parent">
+					<span class="full-width" *ngIf="isExpanded || isShowing">Categories</span>
+					<mat-icon class="menu-button" [ngClass]="{'rotated' : showSubSubMenu}" *ngIf="isExpanded || isShowing">expand_more</mat-icon>
+				</mat-list-item>
+				<div class="submenu" [ngClass]="{'expanded' : showSubSubMenu}" *ngIf="isShowing || isExpanded">
+					<mat-list-item>Ajout un categorie</mat-list-item>
+					<mat-list-item>List categories</mat-list-item>
+				</div>
+        <mat-list-item (click)="showSubSubMenu = !showSubSubMenu" class="parent">
+					<span class="full-width" *ngIf="isExpanded || isShowing">Marques</span>
+					<mat-icon class="menu-button" [ngClass]="{'rotated' : showSubSubMenu}" *ngIf="isExpanded || isShowing">expand_more</mat-icon>
+				</mat-list-item>
+				<div class="submenu" [ngClass]="{'expanded' : showSubSubMenu}" *ngIf="isShowing || isExpanded">
+					<mat-list-item>Ajout un marque</mat-list-item>
+					<mat-list-item>Lists des marque</mat-list-item>
+				</div>
+			</div>
+
+
+		</mat-nav-list>
+
+  </mat-sidenav>
+  <mat-sidenav-content>
+  <mat-toolbar color="accunt" >
+      <button mat-icon-button (click)="sidenav.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+      Dashboard
+      <span class="toolbar-spacer"></span>
+      <a routerLink="/logout"><mat-icon>person</mat-icon></a>
+      <a routerLink="/logout"><mat-icon>logout</mat-icon></a>
+
+
+    </mat-toolbar>
+
+
     <mat-card>
-      <div class="controlers-wrapper">
-        <mat-form-field class="example-full-width">
-          <input matInput placeholder="label" formControlName="label">
-
-        </mat-form-field>
-
-        <mat-form-field class="example-full-width">
-          <input matInput placeholder="description" formControlName="description">
-
-        </mat-form-field>
+      <mat-card-title>Ajout Produit</mat-card-title>
+      <mat-card-content>
+        <form [formGroup]="ProductForm"   >
+          <div class="alert alert-danger text-center" role="alert" *ngIf="errorMessage">veuillez remplir le champ obligatoire</div>
+              <div class="alert alert-success text-center" role="alert" *ngIf="successMessage">Ajouté avec succes</div>
+              <mat-form-field class="display-block">
+                <input matInput  formControlName="label" required >
 
 
-      </div>
+              </mat-form-field>
+             <!-- <mat-form-field class="display-block">
+                <input matInput placeholder="brand" formControlName="brand" required >
+                <div *ngIf="ProductForm.get('brand').invalid &&
+                      ProductForm.get('brand').errors &&
+                      (ProductForm.get('brand').dirty || ProductForm.get('brand').touched)">
+                      <small class="text-danger"
+                        *ngIf="ProductForm.get('brand').hasError('required')">
+                         Ce champ est obligatoire
+                      </small>
+
+                </div>
+              </mat-form-field>
+            -->
+              <mat-form-field class="display-block">
+                <input matInput  formControlName="description" required >
+
+
+
+              </mat-form-field>
+
+              <mat-form-field class="display-block">
+                <input type="number" matInput  formControlName="price" required >
+
+              </mat-form-field>
+              <mat-form-field class="display-block">
+                <input  type="number" matInput  formControlName="pricepromo" required>
+
+              </mat-form-field>
+              <mat-form-field class="display-block">
+                <input  type="number" matInput  formControlName="quantity" required>
+
+              </mat-form-field>
+
+    <!--<mat-form-field appearance="fill">
+    <mat-label>Categories</mat-label>
+    <mat-select formControlName="categories" multiple>
+      <mat-select-trigger>
+        {{Categorylist.value ? Categorylist.value[0] : ''}}
+        <span *ngIf="Categorylist.value?.length > 1" class="example-additional-selection">
+          (+{{Categorylist.value.length - 1}} {{Categorylist.value?.length === 2 ? 'other' : 'others'}})
+        </span>
+      </mat-select-trigger>
+      <mat-option *ngFor="let categorie of getCategories()" [value]="categorie">{{categorie}}</mat-option>
+    </mat-select>
+    </mat-form-field>
+
+    <mat-form-field >
+    <mat-label>Your Team</mat-label>
+    <mat-select formControlName="categories" multiple>
+      <mat-option  *ngFor="let element of categoryData" [value]="element._id">
+        {{element?.label}}
+      </mat-option>
+    </mat-select>
+    </mat-form-field>
+    -->
+         <button mat-raised-button color="accent" (ngSubmit)="updateproductForm()" >add product</button>
+
+            </form>
+      </mat-card-content>
     </mat-card>
 
 
-    <mat-card>
-      <div class="full-wrapper button-wrapper">
-        <div class="button-wrapper">
-          <button mat-flat-button color="warn">Update</button>
-        </div>
-      </div>
-    </mat-card>
-  </form>
-</div>
- -->
- <div class="row justify-content-center">
-  <div class="col-md-4 register-employee">
-    <!-- form card register -->
-    <div class="card card-outline-secondary">
-      <div class="card-header">
-        <h3 class="mb-0">modifier produit</h3>
-      </div>
-      <div class="card-body">
-        <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
 
-          <div class="form-group">
-            <label for="inputlabel">label</label>
-            <input class="form-control" type="text" formControlName="label">
-            <!-- error -->
-            <div class="invalid-feedback" *ngIf="submitted && myForm.label.errors?.required">
-              Description est obligatoire.
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="inputdescription3">description</label>
-            <input class="form-control" type="text" formControlName="description">
-            <!-- error -->
-            <div class="invalid-feedback" *ngIf="submitted && myForm.description.errors?.required">
-              Description est obligatoire.
-            </div>
-          </div>
-<!--
-          <div class="form-group">
-            <label for="inputPassword3">Designation</label>
-            <select class="custom-select form-control" (change)="updateProfile($event.target.value)"
-              formControlName="designation">
-              <option value="">Choose...</option>
-              <option *ngFor="let employeeProfile of EmployeeProfile" value="{{employeeProfile}}">{{employeeProfile}}
-              </option>
-            </select>
-             error
-            <div class="invalid-feedback" *ngIf="submitted && myForm.designation.errors?.required">
-              Choose designation.
-            </div>
-          </div>
- -->
-          <div class="form-group">
-            <label for="inputVerify3">price</label>
-            <input class="form-control" type="text" formControlName="price">
-            <!-- error -->
-            <div class="invalid-feedback" *ngIf="submitted && myForm.price.errors?.required">
-             price est obligatoire .
-            </div>
 
-          </div>
-          <div class="form-group">
-            <label for="inputVerify3">Quantité</label>
-            <input class="form-control" type="text" formControlName="quantity">
-            <!-- error -->
-            <div class="invalid-feedback" *ngIf="submitted && myForm.quantity.errors?.required">
-             Quantité est obligatoire .
-            </div>
+</mat-sidenav-content>
 
-          </div>
 
-          <div class="form-group">
-            <button class="btn btn-success btn-lg btn-block" type="submit">Update</button>
-          </div>
-        </form>
-      </div>
-    </div><!-- form  -->
-  </div>
-</div>
+
+</mat-sidenav-container>
+
+
+

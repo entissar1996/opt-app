@@ -23,19 +23,10 @@ import { EditproductComponent } from './admin/editproduct/editproduct.component'
 import { ListuserComponent } from './admin/listuser/listuser.component';
 import { AuthGuard } from "./_helpers/auth.guard";
 import { AdminGuard } from "./_helpers/admin.guard";
-
+import { AddcategoryComponent } from "./admin/addcategory/addcategory.component";
 const routes: Routes = [
-  { path: 'home', component: HomeComponent },
-  { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent },
-  { path: 'sidebar', component: SidebarComponent },
-  { path: 'listproduct', component: ListproductsComponent },
-  { path: 'listuser', component: ListuserComponent },
-  {
-    path: 'addproduct',
-    component: AddproductsComponent,
 
-  },
+
   /*{path: 'admin',
   children: [
     {
@@ -66,6 +57,7 @@ const routes: Routes = [
   { path: 'upload', component:UploaderComponent  },
   { path: 'dashbord', component:WidgetsComponent  },
   { path: 'listeuser', component:ListuserComponent  },
+  { path: 'listcategories', component:AddcategoryComponent  },
 
   { path: 'editproduct/:id', component:EditproductComponent  },
 

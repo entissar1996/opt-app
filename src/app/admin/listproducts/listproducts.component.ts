@@ -52,14 +52,7 @@ export class ListproductsComponent implements OnInit {
 
   ngOnInit() { }
 
-  deleteStudent(index: number, e){
-    if(window.confirm('Are you sure')) {
-      const data = this.dataSource.data;
-      data.splice((this.paginator.pageIndex * this.paginator.pageSize) + index, 1);
-      this.dataSource.data = data;
-      this.productApi.deleteProduct(e._id).subscribe()
-    }
-  }
+
   deleteProduct(id){
     const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
       width: '450px',

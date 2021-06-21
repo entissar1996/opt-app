@@ -18,10 +18,12 @@ import { EditproductComponent } from "./editproduct/editproduct.component";
 import { UserBadgeComponent } from './user-badge/user-badge.component';
 import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
 import { ListuserComponent } from './listuser/listuser.component';
+import { AddcategoryComponent } from './addcategory/addcategory.component';
 
 @NgModule({
   declarations: [
     AddproductsComponent,
+    AddcategoryComponent,
     ListproductsComponent,
     SearchproductComponent,
     SidebarComponent,

@@ -44,6 +44,8 @@ export class AddproductsComponent implements OnInit {
   ) {
     this.ProductForm = this.formBuilder.group({
     label:['', Validators.required],
+  //  brand:['', Validators.required],
+    pricepromo:['', Validators.required],
     description: ['', Validators.required],
     price: [null, Validators.required],
     quantity:[null, Validators.required],
