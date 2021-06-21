@@ -24,6 +24,7 @@ import { ListuserComponent } from './admin/listuser/listuser.component';
 import { AuthGuard } from "./_helpers/auth.guard";
 import { AdminGuard } from "./_helpers/admin.guard";
 import { AddcategoryComponent } from "./admin/addcategory/addcategory.component";
+import { CardproductComponent } from './users/cardproduct/cardproduct.component';
 const routes: Routes = [
 
 
@@ -46,7 +47,10 @@ const routes: Routes = [
 
   ],}
 
- */ { path: 'home', component: HomeComponent },
+ */
+  { path: 'card', component: CardproductComponent },
+
+{ path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'profile', component: ProfileComponent },
