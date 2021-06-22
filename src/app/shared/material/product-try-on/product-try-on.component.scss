@@ -1,0 +1,11 @@
+.canvas-container {
+  position: relative;
+  width: auto;
+  height: auto;
+}
+.canvas-container canvas {
+  position: absolute;
+  left: 0;
+  width: auto;
+  height: auto;
+}

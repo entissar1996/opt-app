@@ -9,6 +9,13 @@ import { AdminModule } from "../admin.module";
 import { AngularMaterialModule } from "../../material.module";
 import { Subscription } from 'rxjs';
 import { MatSidenav } from '@angular/material/sidenav';
+import { MatTableDataSource } from '@angular/material/table';
+import { Marque } from 'src/app/_models/marque';
+import { Category } from 'src/app/_models/category';
+
+import { MarqueService } from 'src/app/_services/marques/marque.service';
+import { CategoryService } from 'src/app/_services/category/category.service';
+
 export interface Subject {
   name: string;
 }
@@ -18,15 +25,10 @@ export interface Subject {
   styleUrls: ['./addproducts.component.scss']
 })
 export class AddproductsComponent implements OnInit {
-  product: IProduct = {
-    label: '',
-    description: '',
-    price: null,
-    categorie:'',
-    brand:'',
-    photo:'',
-    quantity:null,
-  };
+  CatedataSource :MatTableDataSource<Category>;
+  CatetData: any [] = [];
+  ProductData: any = [];
+  dataSource: MatTableDataSource<Marque>;
   @ViewChild('sidenav') public sidenav: MatSidenav;
   isExpanded = true;
   showSubmenu: boolean = false;
@@ -40,15 +42,33 @@ export class AddproductsComponent implements OnInit {
   constructor(
     public formBuilder: FormBuilder,
     private router: Router,
-    private productService: ProductService
+    private productService: ProductService,
+    private marqueService :MarqueService,
+    private cat:CategoryService
   ) {
     this.ProductForm = this.formBuilder.group({
     label:['', Validators.required],
-  //  brand:['', Validators.required],
+    couleur:['#ffffff', Validators.required],
+    brand:[this.dataSource, Validators.required],
+    categorie:[this.CatedataSource, Validators.required],
     pricepromo:['', Validators.required],
     description: ['', Validators.required],
     price: [null, Validators.required],
     quantity:[null, Validators.required],
+    })
+    this.marqueService.getAllMarques().subscribe(data => {
+      this.ProductData = data.payload;
+      this.dataSource = new MatTableDataSource<Marque>(this.ProductData);
+      console.log(this.dataSource);
+
+
+    })
+    this.cat.getAllCategorys().subscribe(data => {
+      this.CatetData = data.payload;
+      this.CatedataSource = new MatTableDataSource<Category>(this.CatetData);
+      console.log(this.dataSource);
+
+
     })
   }
 

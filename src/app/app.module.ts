@@ -26,6 +26,8 @@ import { AngularMaterialModule } from './material.module';
 import { AdminModule } from './admin/admin.module';
 import { MenuComponent } from "./menu/menu.component";
 import { MatMenuModule } from '@angular/material/menu';
+import { MaterialModule } from './shared/material/material.module';
+import { NgSelectModule } from '@ng-select/ng-select';
 @NgModule({
   declarations: [
     AppComponent,
@@ -56,8 +58,9 @@ import { MatMenuModule } from '@angular/material/menu';
     RouterModule,
     CommonModule,
     MatMenuModule,
-
-    AdminModule
+    MaterialModule,
+    AdminModule,
+    NgSelectModule
 
    ],
   providers: [authInterceptorProviders],

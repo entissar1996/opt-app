@@ -30,7 +30,7 @@ export class ListproductsComponent implements OnInit {
   showSubSubMenu: boolean = false;
   displayedColumns: string[] = [
     'label', 'brand',
-    'price', 'quantity',"price_promo",
+    'price', 'quantity','price_promo',
     'photo','actions'];
 
   constructor(

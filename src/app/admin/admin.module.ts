@@ -19,6 +19,7 @@ import { UserBadgeComponent } from './user-badge/user-badge.component';
 import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
 import { ListuserComponent } from './listuser/listuser.component';
 import { AddcategoryComponent } from './addcategory/addcategory.component';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,9 @@ import { AddcategoryComponent } from './addcategory/addcategory.component';
     BrowserAnimationsModule,
     BrowserModule,
     AppRoutingModule,
-    MatSelectModule
+    MatSelectModule,
+    NgSelectModule,
+
 
   ]
 })

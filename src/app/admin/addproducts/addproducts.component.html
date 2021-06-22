@@ -65,7 +65,24 @@
 
                 </div>
               </mat-form-field>
-             <!-- <mat-form-field class="display-block">
+              <mat-form-field >
+                <mat-label>Marque</mat-label>
+                <mat-select formControlName="brand" >
+                  <mat-option  *ngFor="let element of ProductData" [value]="element._id">
+                    {{element?.label}}
+                  </mat-option>
+                </mat-select>
+                </mat-form-field>
+ <!--
+                <mat-form-field>
+
+                  <input matInput [ngxMatColorPicker]="picker" [formControl]="couleur" [disabled]="disabled">
+                  <ngx-mat-color-toggle matSuffix [for]="picker"></ngx-mat-color-toggle>
+                  <ngx-mat-color-picker #picker [touchUi]="touchUi" [color]="color"></ngx-mat-color-picker>
+
+                </mat-form-field>
+
+              <mat-form-field class="display-block">
                 <input matInput placeholder="brand" formControlName="brand" required >
                 <div *ngIf="ProductForm.get('brand').invalid &&
                       ProductForm.get('brand').errors &&
@@ -90,7 +107,14 @@
 
         </div>
               </mat-form-field>
-
+              <mat-form-field >
+                <mat-label>Categories</mat-label>
+                <mat-select formControlName="categorie" multiple>
+                  <mat-option  *ngFor="let element of CatetData" [value]="element.label">
+                    {{element?.label}}
+                  </mat-option>
+                </mat-select>
+                </mat-form-field>
               <mat-form-field class="display-block">
                 <input matInput placeholder="Prix" formControlName="price" required >
                 <div *ngIf="ProductForm.get('price').invalid &&
@@ -126,28 +150,12 @@
         </div>
               </mat-form-field>
 
-    <!--<mat-form-field appearance="fill">
-    <mat-label>Categories</mat-label>
-    <mat-select formControlName="categories" multiple>
-      <mat-select-trigger>
-        {{Categorylist.value ? Categorylist.value[0] : ''}}
-        <span *ngIf="Categorylist.value?.length > 1" class="example-additional-selection">
-          (+{{Categorylist.value.length - 1}} {{Categorylist.value?.length === 2 ? 'other' : 'others'}})
-        </span>
-      </mat-select-trigger>
-      <mat-option *ngFor="let categorie of getCategories()" [value]="categorie">{{categorie}}</mat-option>
-    </mat-select>
-    </mat-form-field>
 
-    <mat-form-field >
-    <mat-label>Your Team</mat-label>
-    <mat-select formControlName="categories" multiple>
-      <mat-option  *ngFor="let element of categoryData" [value]="element._id">
-        {{element?.label}}
-      </mat-option>
-    </mat-select>
-    </mat-form-field>
-    -->
+
+
+
+
+
          <button mat-raised-button color="accent" (click)="onSubmit()" [disabled]="ProductForm.invalid" >add product</button>
 
             </form>

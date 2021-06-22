@@ -37,6 +37,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatDividerModule } from '@angular/material/divider';
 import { AngularMaterialModule } from 'src/app/material.module';
+import { ProductTryOnComponent } from './product-try-on/product-try-on.component';
 
 
 const materials=[
@@ -76,6 +77,8 @@ const materials=[
 
 @NgModule({
   declarations: [
+
+    ProductTryOnComponent
   ],
   imports: [
     CommonModule,
@@ -91,6 +94,7 @@ const materials=[
   ],
   exports:[
     materials,
+    ProductTryOnComponent,
     ReactiveFormsModule,
     FormsModule
   ],
