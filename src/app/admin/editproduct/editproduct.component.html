@@ -1,4 +1,3 @@
-<app-sidebar></app-sidebar>
 <mat-sidenav-container fullscreen>
   <mat-sidenav mode="side" #sidenav opened position="start" style="background-color: #E7DEE8;">
     <img src="assets/1819.png" alt="photo" class="photo">
@@ -9,9 +8,9 @@
 				<mat-icon class="menu-button" [ngClass]="{'rotated' : showSubmenu}" *ngIf="isExpanded || isShowing">expand_more</mat-icon>
 			</mat-list-item>
 			<div class="submenu" [ngClass]="{'expanded' : showSubmenu}" *ngIf="isShowing || isExpanded">
-				<a mat-list-item routerLink="addproduct">Ajout un produit</a>
-				<a mat-list-item routerLink="listproduct">Liste du produits</a>
-        <a mat-list-item routerLink="listproduct">Liste des commandes</a>
+				<a mat-list-item routerLink="/addproduct">Ajout un produit</a>
+				<a mat-list-item routerLink="/listproduct">Liste du produits</a>
+        <a mat-list-item routerLink="/listproduct">Liste des commandes</a>
 				<mat-list-item (click)="showSubSubMenu = !showSubSubMenu" class="parent">
 					<span class="full-width" *ngIf="isExpanded || isShowing">Categories</span>
 					<mat-icon class="menu-button" [ngClass]="{'rotated' : showSubSubMenu}" *ngIf="isExpanded || isShowing">expand_more</mat-icon>
@@ -49,74 +48,86 @@
 
 
     <mat-card>
-      <mat-card-title>Ajout Produit</mat-card-title>
+      <mat-card-title>Modifier un Produit</mat-card-title>
       <mat-card-content>
-        <form [formGroup]="ProductForm"   >
-          <div class="alert alert-danger text-center" role="alert" *ngIf="errorMessage">veuillez remplir le champ obligatoire</div>
-              <div class="alert alert-success text-center" role="alert" *ngIf="successMessage">Ajouté avec succes</div>
-              <mat-form-field class="display-block">
-                <input matInput  formControlName="label" required >
 
 
-              </mat-form-field>
-             <!-- <mat-form-field class="display-block">
-                <input matInput placeholder="brand" formControlName="brand" required >
-                <div *ngIf="ProductForm.get('brand').invalid &&
-                      ProductForm.get('brand').errors &&
-                      (ProductForm.get('brand').dirty || ProductForm.get('brand').touched)">
-                      <small class="text-danger"
-                        *ngIf="ProductForm.get('brand').hasError('required')">
-                         Ce champ est obligatoire
-                      </small>
+            <form
+              [formGroup]="ProductForm"
+              (ngSubmit)="updateProductForm()"
+              #resetStudentForm="ngForm"
+              novalidate
+            >
 
-                </div>
-              </mat-form-field>
-            -->
-              <mat-form-field class="display-block">
-                <input matInput  formControlName="description" required >
+
+                  <mat-form-field class="example-full-width">
+                    <input matInput placeholder="label" formControlName="label" />
+
+                  </mat-form-field>
+         <!-- Email -->
+         <mat-form-field class="example-full-width">
+          <input matInput placeholder="description" formControlName="description" />
+
+
+        </mat-form-field>
 
 
 
-              </mat-form-field>
+                  <mat-form-field class="example-full-width">
+                    <mat-select formControlName="brand" placeholder="choix un marque">
+                      <mat-option  >
+                        gucci
+                      </mat-option>
+                    </mat-select>
 
-              <mat-form-field class="display-block">
-                <input type="number" matInput  formControlName="price" required >
+                  </mat-form-field>
 
-              </mat-form-field>
-              <mat-form-field class="display-block">
-                <input  type="number" matInput  formControlName="pricepromo" required>
 
-              </mat-form-field>
-              <mat-form-field class="display-block">
-                <input  type="number" matInput  formControlName="quantity" required>
+                  <mat-form-field class="example-full-width">
+                    <mat-select formControlName="categorie" multiple placeholder="choix un categorie">
+                      <mat-option>
+                        lunette solaire
+                      </mat-option>
+                    </mat-select>
 
-              </mat-form-field>
 
-    <!--<mat-form-field appearance="fill">
-    <mat-label>Categories</mat-label>
-    <mat-select formControlName="categories" multiple>
-      <mat-select-trigger>
-        {{Categorylist.value ? Categorylist.value[0] : ''}}
-        <span *ngIf="Categorylist.value?.length > 1" class="example-additional-selection">
-          (+{{Categorylist.value.length - 1}} {{Categorylist.value?.length === 2 ? 'other' : 'others'}})
-        </span>
-      </mat-select-trigger>
-      <mat-option *ngFor="let categorie of getCategories()" [value]="categorie">{{categorie}}</mat-option>
-    </mat-select>
-    </mat-form-field>
+                  </mat-form-field>
 
-    <mat-form-field >
-    <mat-label>Your Team</mat-label>
-    <mat-select formControlName="categories" multiple>
-      <mat-option  *ngFor="let element of categoryData" [value]="element._id">
-        {{element?.label}}
-      </mat-option>
-    </mat-select>
-    </mat-form-field>
-    -->
-         <button mat-raised-button color="accent" (ngSubmit)="updateproductForm()" >add product</button>
+                  <!-- ville -->
+                  <mat-form-field class="example-full-width">
+                    <input
+                      matInput
+                      placeholder="prix"
+                      formControlName="price"
+                    />
+
+                  </mat-form-field>
+                  <mat-form-field class="example-full-width">
+                    <input
+                      matInput
+                      placeholder="prix promotionnel"
+                      formControlName="pricepromo"
+                    />
+
+                  </mat-form-field>
+                  <mat-form-field class="example-full-width">
+                    <input
+                      matInput
+                      placeholder="couleur"
+                      formControlName="couleur"
+                    />
+
+                  </mat-form-field>
+
+
+
+                    <button class="ID" mat-raised-button color="accent" (click)="updateProductForm()" mat-flat-button color="warn">
+                      Update
+                    </button>
+
 
             </form>
+
       </mat-card-content>
     </mat-card>
 

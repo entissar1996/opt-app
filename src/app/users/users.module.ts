@@ -1,7 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { LoginComponent } from "./login/login.component";
-import { RegisterComponent } from "./register/register.component";
 import { HttpClientModule } from '@angular/common/http';
 import { RouterLink, RouterModule } from '@angular/router';
 import { MaterialModule } from './../shared/material/material.module';
@@ -12,10 +10,8 @@ import { CardproductComponent } from './cardproduct/cardproduct.component';
 
 @NgModule({
   declarations: [
-    LoginComponent,
-    RegisterComponent,
     ConfirmationDialogComponent,
-    CardproductComponent
+    CardproductComponent,
 
   ],
   imports: [

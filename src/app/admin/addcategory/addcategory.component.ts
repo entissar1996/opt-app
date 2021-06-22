@@ -34,7 +34,8 @@ export class AddcategoryComponent implements OnInit {
   errorMessage;
   successMessage;
   displayedColumns: string[] = [
-    'label', 'logo'];
+    'label', 'logo','actions'
+  ];
 
   constructor(
     public formBuilder: FormBuilder,
@@ -47,7 +48,6 @@ export class AddcategoryComponent implements OnInit {
   ) {
     this.ProductForm = this.formBuilder.group({
     label:['', Validators.required],
-    logo:['', Validators.required]
 
     }),
     this.productService.getAllMarques().subscribe(data => {
@@ -99,11 +99,11 @@ export class AddcategoryComponent implements OnInit {
       if (result) {
        this.productService.deleteMarque(id).subscribe({
          next:(response:IApiResponse)=>{
-          this.router.navigateByUrl('/listmarque');
+          this.router.navigateByUrl('/listcategories');
 
          },
          error:(error)=>{
-          this.router.navigateByUrl('/listmarque');
+          this.router.navigateByUrl('/listcategories');
 
          },
          complete:()=>null

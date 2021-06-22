@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { AuthenticationService } from '../../_services/auth/authentication.service';
+import { AuthenticationService } from '../_services/auth/authentication.service';
 import { first } from 'rxjs/operators';
-import { User } from '../../_models/user.model';
-import { UserService } from '../../_services/auth/user.service';
+import { User } from '../_models/user.model';
+import { UserService } from '../_services/auth/user.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { TokenStorageService } from 'src/app/_services/auth/token-storage.service';
 import { Subscription } from 'rxjs';

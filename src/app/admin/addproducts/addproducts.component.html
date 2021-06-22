@@ -116,7 +116,7 @@
                 </mat-select>
                 </mat-form-field>
               <mat-form-field class="display-block">
-                <input matInput placeholder="Prix" formControlName="price" required >
+                <input type="number" matInput placeholder="Prix" formControlName="price" required >
                 <div *ngIf="ProductForm.get('price').invalid &&
                 ProductForm.get('price').errors &&
                 (ProductForm.get('price').dirty || ProductForm.get('price').touched)">
@@ -156,7 +156,7 @@
 
 
 
-         <button mat-raised-button color="accent" (click)="onSubmit()" [disabled]="ProductForm.invalid" >add product</button>
+         <button mat-raised-button color="accent" (click)="onSubmit()" [disabled]="ProductForm.invalid" >Ajouté</button>
 
             </form>
       </mat-card-content>

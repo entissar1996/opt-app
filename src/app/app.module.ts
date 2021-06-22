@@ -28,6 +28,8 @@ import { MenuComponent } from "./menu/menu.component";
 import { MatMenuModule } from '@angular/material/menu';
 import { MaterialModule } from './shared/material/material.module';
 import { NgSelectModule } from '@ng-select/ng-select';
+import { RegisterComponent } from './register/register.component';
+import { LoginComponent } from './login/login.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,6 +38,8 @@ import { NgSelectModule } from '@ng-select/ng-select';
     BoardUserComponent,
     SliderComponent,
     MenuComponent,
+    RegisterComponent,
+    LoginComponent
 
   ],
   imports: [
@@ -60,7 +64,7 @@ import { NgSelectModule } from '@ng-select/ng-select';
     MatMenuModule,
     MaterialModule,
     AdminModule,
-    NgSelectModule
+    NgSelectModule,
 
    ],
   providers: [authInterceptorProviders],

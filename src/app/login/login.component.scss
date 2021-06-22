@@ -1,0 +1,46 @@
+mat-card{
+  text-align: center;
+  width: 35%;
+  height: 50%;
+ margin-top: 10%;
+ margin-left: 35%;
+  box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, .2);
+}
+
+
+mat-table{
+  width: 96%;
+  margin: 2%;
+  padding: .5em;
+}
+
+ng-container{
+  width: 15%;
+  margin:3px;
+}
+
+td{
+  padding:2px;
+  width: 17%;
+  height: 20PX;
+}
+
+th{
+  padding:3px;
+}
+.tableau-user{margin-top:2%;
+}
+h2{
+  margin-top: 25px;
+  text-align: center;
+}
+mat-form-field{
+  padding: 20px;
+  margin-left: 3%;
+  width: 80%;
+  height: 50%;
+}
+input{
+  width: 80%;
+  height: 100%;
+}

@@ -1,0 +1,39 @@
+mat-card{
+  text-align: center;
+  width: 30%;
+  margin: 3% 35%;
+  box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, .2);
+}
+
+
+mat-table{
+  width: 96%;
+  margin: 2%;
+  padding: .5em;
+}
+
+ng-container{
+  width: 15%;
+  margin:3px;
+}
+
+td{
+  padding:2px;
+  width: 17%;
+  height: 20PX;
+}
+
+th{
+  padding:3px;
+}
+.tableau-user{margin-top:2%;
+}
+h2{
+  margin-top: 25px;
+  text-align: center;
+}
+mat-form-field{
+  padding: 5px;
+  margin-left: 5%;
+  width: 80%;
+}

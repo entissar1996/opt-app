@@ -1,0 +1,105 @@
+<app-menu></app-menu>
+<mat-card>
+  <mat-card-title>Créez votre compte</mat-card-title>
+  <mat-card-content>
+        <form [formGroup]="registerForm" class="personal-information" >
+
+
+          <mat-form-field class="display-block" appearance="outline" >
+            <mat-label> Nom </mat-label>
+            <input matInput  formControlName="firstname" required >
+            <div *ngIf="registerForm.get('firstname').invalid &&
+                  registerForm.get('firstname').errors &&
+                  (registerForm.get('firstname').dirty || registerForm.get('firstname').touched)">
+                  <small class="text-danger"
+                    *ngIf="registerForm.get('firstname').hasError('required')">
+                     Ce champ est obligatoire
+                  </small>
+
+            </div>
+          </mat-form-field>
+          <mat-form-field class="display-block" appearance="outline">
+            <mat-label>Prénom</mat-label>
+            <input matInput  formControlName="lastname" required >
+            <div *ngIf="registerForm.get('lastname').invalid &&
+                  registerForm.get('lastname').errors &&
+                  (registerForm.get('lastname').dirty || registerForm.get('lastname').touched)">
+                  <small class="text-danger"
+                    *ngIf="registerForm.get('lastname').hasError('required')">
+                     Ce champ est obligatoire
+                  </small>
+
+            </div>
+          </mat-form-field>
+
+
+          <mat-form-field class="display-block" appearance="outline">
+            <mat-label>Email</mat-label>
+            <input matInput  formControlName="email" required >
+            <div *ngIf="registerForm.get('email').invalid &&
+                  registerForm.get('email').errors &&
+                  (registerForm.get('email').dirty || registerForm.get('email').touched)">
+                  <small class="text-danger"
+                    *ngIf="registerForm.get('email').hasError('required')">
+                     Ce champ est obligatoire
+                  </small>
+
+            </div>
+          </mat-form-field>
+          <mat-form-field class="display-block" appearance="outline">  <mat-label>Télephone</mat-label>
+            <input type="number" matInput  formControlName="phone" required >
+            <div *ngIf="registerForm.get('phone').invalid &&
+                  registerForm.get('phone').errors &&
+                  (registerForm.get('phone').dirty || registerForm.get('phone').touched)">
+                  <small class="text-danger"
+                    *ngIf="registerForm.get('phone').hasError('required')">
+                     Ce champ est obligatoire
+                  </small>
+
+            </div>
+          </mat-form-field>
+          <mat-form-field class="display-block" appearance="outline"> <mat-label>Ville</mat-label>
+            <input matInput  formControlName="ville" required >
+            <div *ngIf="registerForm.get('ville').invalid &&
+                  registerForm.get('ville').errors &&
+                  (registerForm.get('ville').dirty || registerForm.get('ville').touched)">
+                  <small class="text-danger"
+                    *ngIf="registerForm.get('ville').hasError('required')">
+                     Ce champ est obligatoire
+                  </small>
+
+            </div>
+          </mat-form-field>
+
+          <mat-form-field class="display-block" appearance="outline"> <mat-label>Adresse</mat-label>
+            <input matInput  formControlName="adresse" required >
+            <div *ngIf="registerForm.get('adresse').invalid &&
+                  registerForm.get('adresse').errors &&
+                  (registerForm.get('adresse').dirty || registerForm.get('adresse').touched)">
+                  <small class="text-danger"
+                    *ngIf="registerForm.get('adresse').hasError('required')">
+                     Ce champ est obligatoire
+                  </small>
+
+            </div>
+          </mat-form-field>
+          <mat-form-field class="display-block" appearance="outline"> <mat-label>Mot de passe</mat-label>
+            <input matInput  formControlName="password" required >
+            <div *ngIf="registerForm.get('password').invalid &&
+                  registerForm.get('password').errors &&
+                  (registerForm.get('password').dirty || registerForm.get('password').touched)">
+                  <small class="text-danger"
+                    *ngIf="registerForm.get('password').hasError('required')">
+                     Ce champ est obligatoire
+                  </small>
+
+            </div>
+          </mat-form-field>
+
+
+     <button mat-raised-button color="accent" (click)="onSubmit()"  >Ajouté</button>
+
+        </form>
+  </mat-card-content>
+</mat-card>
+

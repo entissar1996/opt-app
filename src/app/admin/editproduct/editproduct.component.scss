@@ -1,6 +1,6 @@
 mat-card{
   width: 50%;
-  margin: 10% 20%;
+  margin: 6% 20%;
 }
 :host {
   display: block;
@@ -80,9 +80,9 @@ ng-container{
   margin:3px;
 }
 
-td{
-  padding:2px;
-  width: 17%;
+mat-form-field{
+  padding:40px;
+  width: 80%;
   height: 20PX;
 }
 
@@ -94,4 +94,7 @@ th{
 h2{
   margin-top: 25px;
   text-align: center;
+}
+.ID{
+  margin-top:50px;
 }
