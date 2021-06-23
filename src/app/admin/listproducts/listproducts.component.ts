@@ -78,7 +78,7 @@ export class ListproductsComponent implements OnInit {
 
 
   getUrl(url){
-          return `${environment.baseUri}/uploads/${url}`;
+          return `${environment.baseUri}/uploads/picture/${url}`;
   }
 
   uploadPhoto(id:string){

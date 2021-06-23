@@ -1,0 +1,90 @@
+<div id="header" class="flex items-center mb-4">
+  <img alt="avatar" class="w-20 rounded-full border-2 border-gray-300"   src="assets/av.png" />
+  <div id="header-text" class="leading-5 ml-6 sm">
+     <h4 id="name" class=" text-left md:text-4xl font-bold p-12
+     text-blue-500 uppercase">zuih</h4>
+  </div>
+</div>
+
+<style>@import url(https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/5.3.45/css/materialdesignicons.min.css);</style>
+<div class="min-w-screen min-h-screen bg-blue-200 flex items-center p-5 lg:p-10 overflow-hidden relative">
+<div class="w-full max-w-6xl rounded bg-white shadow-xl p-10 lg:p-20 mx-auto text-gray-800 relative md:text-left">
+<div class="md:flex items-center -mx-10">
+    <div class="w-full md:w-1/2 px-10 mb-10 md:mb-0">
+        <div class="relative">
+            <img src="assets/admin.jpg" class="w-full relative z-10" alt="">
+            <div class="border-4 border-yellow-200 absolute top-10 bottom-10 left-10 right-10 z-0"></div>
+        </div>
+    </div>
+    <div class="w-full md:w-1/2 px-10">
+        <div class="mb-10">
+          <h1 class="  text-blue-800 font-bold uppercase text-2xl mb-5">lunette 1</h1>
+
+            <p class="text-sm">lunette rayban <a href="#" class="opacity-50 text-gray-900 hover:opacity-100 inline-block text-xs leading-none border-b border-gray-900"></a></p>
+        </div>
+      <!-- <pre><code>  {{ maison | json}}
+        <br>
+        {{localtair |json}}
+      </code></pre>-->
+        <div>
+            <div class=" p-2 ">
+                <span class="font-bold text-5xl leading-none align-baseline">369 DT</span>
+                <!-- <span class="text-2xl leading-none align-baseline">DT</span> -->
+            </div>
+
+
+            <div class="p-8 ">
+                <button     (click)="postRes()"
+                 class="bg-yellow-300 opacity-75 hover:opacity-100 text-yellow-900 hover:text-gray-900 rounded-full px-10 py-2 font-semibold"> Réserver</button>
+            </div>
+
+        </div>
+
+        <div class="inline-block align-bottom">
+
+          </div>
+
+    </div>
+
+</div>
+<div class=" p-3 flex items-center mt-1">
+  <svg class="w-6 h-6 fill-current text-yellow-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+  <svg class="w-6 h-6 fill-current text-yellow-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+  <svg class="w-6 h-6 fill-current text-yellow-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+  <svg class="w-6 h-6 fill-current text-yellow-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+  <svg class="w-6 h-6 fill-current text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+</div>
+
+<a
+class=" absolute bottom-0 right-0 h-16 w-26  inline-block px-6 py-3 no-underline rounded-md text-green-900   "
+[routerLink]="['/home/show-residences']"
+routerLinkActive="router-link-active"
+>
+<mat-icon class="green-icon">subdirectory_arrow_left</mat-icon> retour
+
+</a>
+</div>
+
+
+</div>
+
+
+<!-- comment form -->
+<div class=" flex   mt-6 mx-8 mb-4 max-w-lg">
+<form class="w-full max-w-xl bg-white rounded-lg px-4 pt-2">
+<div class="flex flex-wrap -mx-3 mb-6">
+<div class="w-full md:w-full px-3 mb-2 mt-2">
+   <textarea class="bg-gray-100 rounded border border-gray-400 leading-normal resize-none w-full h-16 py-2 px-3 font-medium placeholder-gray-700 focus:outline-none focus:bg-white" name="body" placeholder='Ajouter un commentaire public...' required></textarea>
+</div>
+<div class="w-full md:w-full flex items-start md:w-full px-3">
+  <div class="-mr-1">
+    <input type='submit' class="bg-white text-gray-700 font-medium py-1 px-4 border border-gray-400 rounded-lg tracking-wide mr-1 hover:bg-gray-100" value='ANNULER'>
+ </div>
+   <div class="-mr-1">
+      <input type='submit' class="bg-gray-200 text-gray-700 font-medium py-1 px-4 border border-gray-400 rounded-lg tracking-wide mr-1 hover:bg-gray-100" value='AJOUTER UN COMMENTAIRE'>
+   </div>
+
+</div>
+</div>
+</form>
+</div>

@@ -8,9 +8,9 @@
 				<mat-icon class="menu-button" [ngClass]="{'rotated' : showSubmenu}" *ngIf="isExpanded || isShowing">expand_more</mat-icon>
 			</mat-list-item>
 			<div class="submenu" [ngClass]="{'expanded' : showSubmenu}" *ngIf="isShowing || isExpanded">
-				<a mat-list-item routerLink="addproduct">Ajout un produit</a>
-				<a mat-list-item routerLink="listproduct">Liste du produits</a>
-        <a mat-list-item routerLink="listproduct">Liste des commandes</a>
+				<a mat-list-item routerLink="/addproduct">Ajout un produit</a>
+				<a mat-list-item routerLink="/listproduct">Liste du produits</a>
+        <a mat-list-item routerLink="/listproduct">Liste des commandes</a>
 				<mat-list-item (click)="showSubSubMenu = !showSubSubMenu" class="parent">
 					<span class="full-width" *ngIf="isExpanded || isShowing">Categories</span>
 					<mat-icon class="menu-button" [ngClass]="{'rotated' : showSubSubMenu}" *ngIf="isExpanded || isShowing">expand_more</mat-icon>
@@ -107,14 +107,14 @@
 
         </div>
               </mat-form-field>
-              <mat-form-field >
+            <!--  <mat-form-field >
                 <mat-label>Categories</mat-label>
                 <mat-select formControlName="categorie" multiple>
                   <mat-option  *ngFor="let element of CatetData" [value]="element.label">
-                    {{element?.label}}
+                {{element?.label}}lunette de vue
                   </mat-option>
                 </mat-select>
-                </mat-form-field>
+                </mat-form-field>-->
               <mat-form-field class="display-block">
                 <input type="number" matInput placeholder="Prix" formControlName="price" required >
                 <div *ngIf="ProductForm.get('price').invalid &&

@@ -50,7 +50,7 @@ export class AddproductsComponent implements OnInit {
     label:['', Validators.required],
     couleur:['#ffffff', Validators.required],
     brand:[this.dataSource, Validators.required],
-    categorie:[this.CatedataSource, Validators.required],
+    //categorie:[this.CatedataSource, Validators.required],
     pricepromo:['', Validators.required],
     description: ['', Validators.required],
     price: [null, Validators.required],

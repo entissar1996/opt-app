@@ -25,6 +25,8 @@ import { AuthGuard } from "./_helpers/auth.guard";
 import { AdminGuard } from "./_helpers/admin.guard";
 import { AddcategoryComponent } from "./admin/addcategory/addcategory.component";
 import { CardproductComponent } from './users/cardproduct/cardproduct.component';
+import { ProductDetailComponent } from './users/product-detail/product-detail.component';
+import { MenuComponent } from './menu/menu.component';
 const routes: Routes = [
 
 
@@ -52,6 +54,8 @@ const routes: Routes = [
 
 { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'menu', component: MenuComponent },
+
   { path: 'register', component: RegisterComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'user', component: BoardUserComponent },
@@ -62,6 +66,8 @@ const routes: Routes = [
   { path: 'dashbord', component:WidgetsComponent  },
   { path: 'listeuser', component:ListuserComponent  },
   { path: 'listcategories', component:AddcategoryComponent  },
+  { path: 'product-detail', component:ProductDetailComponent  },
+  { path: 'addcategory', component:AddcategoryComponent  },
 
   { path: 'editproduct/:id', component:EditproductComponent  },
 

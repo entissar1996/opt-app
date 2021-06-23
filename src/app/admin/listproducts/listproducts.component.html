@@ -8,9 +8,9 @@
 				<mat-icon class="menu-button" [ngClass]="{'rotated' : showSubmenu}" *ngIf="isExpanded || isShowing">expand_more</mat-icon>
 			</mat-list-item>
 			<div class="submenu" [ngClass]="{'expanded' : showSubmenu}" *ngIf="isShowing || isExpanded">
-				<a mat-list-item routerLink="addproduct">Ajout un produit</a>
-				<a mat-list-item routerLink="listproduct">Liste du produits</a>
-        <a mat-list-item routerLink="listproduct">Liste des commandes</a>
+				<a mat-list-item routerLink="/addproduct">Ajout un produit</a>
+				<a mat-list-item routerLink="/listproduct">Liste du produits</a>
+        <a mat-list-item routerLink="/listproduct">Liste des commandes</a>
 				<mat-list-item (click)="showSubSubMenu = !showSubSubMenu" class="parent">
 					<span class="full-width" *ngIf="isExpanded || isShowing">Categories</span>
 					<mat-icon class="menu-button" [ngClass]="{'rotated' : showSubSubMenu}" *ngIf="isExpanded || isShowing">expand_more</mat-icon>
@@ -97,7 +97,7 @@
           <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
         </mat-table>
 
-        <mat-paginator [pageSizeOptions]="[2, 10, 20]" showFirstLastButtons></mat-paginator>
+        <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
       </div>
     </div>
 
