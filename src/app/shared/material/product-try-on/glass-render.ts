@@ -1,5 +1,5 @@
 
-import adapter from 'webrtc-adapter';
+
 import * as THREE from 'three';
 import GLTFLoader from 'three-gltf-loader';
 
@@ -16,8 +16,9 @@ export function drawLine( ctx, x1, y1, x2, y2 ) {
   ctx.stroke();
 }
 
-export async function setupWebcam(webcamElement) {
+export async function setupWebcam() {
   return new Promise( ( resolve, reject ) => {
+    const webcamElement = document.getElementById( "webcam" ) as HTMLMediaElement;
       const navigatorAny = navigator;
       navigator.getUserMedia = navigator.getUserMedia;
       if( navigator.getUserMedia ) {
@@ -109,9 +110,10 @@ export async function trackFace() {
 
   requestAnimationFrame( trackFace );
 }
-export const setup= async (video,canvas,overlay,webcamElement) => {
-  await setupWebcam(webcamElement);
-  video.play();
+
+export const setup= async (video,canvas,overlay) => {
+  await setupWebcam();
+   video.play();
   let videoWidth = video.videoWidth;
   let videoHeight = video.videoHeight;
   video.width = videoWidth;

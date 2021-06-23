@@ -8,19 +8,21 @@ import adapter from 'webrtc-adapter';
   templateUrl: './product-try-on.component.html',
   styleUrls: ['./product-try-on.component.scss']
 })
+
 export class ProductTryOnComponent implements OnInit {
+public video:HTMLElement;
+public canvas:HTMLElement;
+public overlay:HTMLElement;
+
 
  constructor(){
-  const video = document.getElementById( "webcam" );
-    const canvas = document.getElementById( "output" );
-    const overlay = document.getElementById( "overlay" );
-    const webcamElement = document.getElementById( "webcam" );
+}
 
-    Render.setup(video,canvas,overlay,webcamElement);
- }
-
-   ngOnInit(): void{
-
+async ngOnInit(){
+    this.video =await document.getElementById( "webcam" );
+    this.canvas = await document.getElementById( "output" );
+    this.overlay =await document.getElementById( "overlay" );
+     await Render.setup(this.video,this.canvas,this.overlay);
   }
 
 }

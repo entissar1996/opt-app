@@ -49,8 +49,8 @@ export class AddproductsComponent implements OnInit {
     this.ProductForm = this.formBuilder.group({
     label:['', Validators.required],
     couleur:['#ffffff', Validators.required],
-    brand:[this.dataSource, Validators.required],
-    categorie:[this.CatedataSource, Validators.required],
+    brand:['', Validators.required],
+    categorie:['', Validators.required],
     pricepromo:['', Validators.required],
     description: ['', Validators.required],
     price: [null, Validators.required],
@@ -66,7 +66,7 @@ export class AddproductsComponent implements OnInit {
     this.cat.getAllCategorys().subscribe(data => {
       this.CatetData = data.payload;
       this.CatedataSource = new MatTableDataSource<Category>(this.CatetData);
-      console.log(this.dataSource);
+      console.log(this.CatedataSource);
 
 
     })

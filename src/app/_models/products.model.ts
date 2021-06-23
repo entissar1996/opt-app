@@ -4,7 +4,7 @@ export interface IProduct{
   price?: Number,
   quantity?: Number,
   brand?: String,
-  categorie?:String[],
+  categorie?:String,
   couleur?:String,
   photo: String,
   pricepromo?:String
