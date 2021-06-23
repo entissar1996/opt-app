@@ -79,7 +79,7 @@
           <ng-container matColumnDef="photo">
             <th mat-header-cell *matHeaderCellDef> Photo</th>
             <td mat-cell *matCellDef="let element">
-              <button  (click)="uploadPhoto(element?.id)"><img [src]="getUrl(element?.photo)" alt="photo" class="photo"></button>
+              <button  (click)="uploadPhoto(element?._id)"><img [src]="getUrl(element?.photo)" alt="photo" class="photo"></button>
 
             </td>
           </ng-container>
@@ -88,7 +88,7 @@
             <th mat-header-cell *matHeaderCellDef> Actions </th>
             <td mat-cell *matCellDef="let element">
               <button  mat-button color="primary" [routerLink]="['/editproduct/',element._id]"><mat-icon>edit</mat-icon></button>
-              <button  mat-button color="warn" (click)="deleteProduct(element.id)"><mat-icon>delete</mat-icon></button>
+              <button  mat-button color="warn" (click)="deleteProduct(element?._id)"><mat-icon>delete</mat-icon></button>
            </td>
           </ng-container>
 

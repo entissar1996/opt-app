@@ -73,6 +73,14 @@
                   </mat-option>
                 </mat-select>
                 </mat-form-field>
+                <mat-form-field >
+                  <mat-label>Categorie</mat-label>
+                  <mat-select formControlName="categorie" >
+                    <mat-option  *ngFor="let element of CatetData" [value]="element._id">
+                      {{element?.label}}
+                    </mat-option>
+                  </mat-select>
+                  </mat-form-field>
  <!--
                 <mat-form-field>
 

@@ -109,7 +109,6 @@ export async function trackFace() {
 
   requestAnimationFrame( trackFace );
 }
-
 export const setup= async (video,canvas,overlay,webcamElement) => {
   await setupWebcam(webcamElement);
   video.play();

@@ -26,7 +26,7 @@ export interface Subject {
 })
 export class AddproductsComponent implements OnInit {
   CatedataSource :MatTableDataSource<Category>;
-  CatetData: any [] = [];
+  CatetData: any = [];
   ProductData: any = [];
   dataSource: MatTableDataSource<Marque>;
   @ViewChild('sidenav') public sidenav: MatSidenav;
@@ -50,7 +50,7 @@ export class AddproductsComponent implements OnInit {
     label:['', Validators.required],
     couleur:['#ffffff', Validators.required],
     brand:[this.dataSource, Validators.required],
-    //categorie:[this.CatedataSource, Validators.required],
+    categorie:[this.CatedataSource, Validators.required],
     pricepromo:['', Validators.required],
     description: ['', Validators.required],
     price: [null, Validators.required],
