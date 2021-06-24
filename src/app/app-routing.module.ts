@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { RegisterComponent } from './register/register.component';
+import { RegisterComponent } from './users/register/register.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './shared/material/home/home.component';
-import { ProfileComponent } from './profile/profile.component';
+import { ProfileComponent } from './users/profile/profile.component';
 import { BoardUserComponent } from './board-user/board-user.component';
 
 import { ListproductsComponent } from "./admin/listproducts/listproducts.component";
@@ -27,6 +27,7 @@ import { AddcategoryComponent } from "./admin/addcategory/addcategory.component"
 import { CardproductComponent } from './users/cardproduct/cardproduct.component';
 import { ProductDetailComponent } from './users/product-detail/product-detail.component';
 import { MenuComponent } from './menu/menu.component';
+import { UserBadgeComponent } from './admin/user-badge/user-badge.component';
 const routes: Routes = [
 
 
@@ -55,7 +56,8 @@ const routes: Routes = [
 { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'menu', component: MenuComponent },
-
+  { path: 'produ', component: UserBadgeComponent },
+  { path: 'profile', component: ProfileComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'user', component: BoardUserComponent },

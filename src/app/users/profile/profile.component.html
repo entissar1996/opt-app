@@ -1,0 +1,50 @@
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<div class="container bootstrap snippets bootdey">
+<div class="row">
+    <!-- BEGIN USER PROFILE -->
+    <div class="col-md-12">
+      <div class="grid profile">
+        <div class="grid-header">
+          <div class="col-xs-2">
+           <!-- <img src="https://bootdey.com/img/Content/avatar/avatar1.png" class="img-circle" alt="">-->
+           <img src="getUrl({{user.photo}})" alt="photo" class="photo">
+
+
+
+          </div>
+          <div class="col-xs-7">
+            <h3>{{user.firstname}}</h3>
+            <p>{{user.lastname}}</p>
+
+          </div>
+          <div class="col-xs-3 text-right">
+            <p><a href="" title="Everyone can see your profile"><i class="fa fa-globe"></i> Everyone</a></p>
+          </div>
+        </div>
+        <div class="grid-body">
+
+          <div class="tab-content">
+            <!-- BEGIN PROFILE -->
+            <div class="tab-pane active" id="profile">
+              <p class="lead">Mon Profil</p>
+              <hr>
+              <div class="row">
+                <div class="col-md-6">
+                  <p><strong>Email:</strong> <a href="{{user.email}}">{{user.email}}</a></p>
+                </div>
+                <div class="col-md-6">
+                  <p><strong>Address:</strong> {{user.adresse}}</p>
+                  <p><strong>Télehone:</strong> {{user.phone}}</p>
+                </div>
+              </div>
+              <button class="ss" [routerLink]="['/edit-profile/',user._id]" mat-flat-button color="warn">
+                Modifer
+                 </button>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- END USER PROFILE -->
+  </div>
+</div>

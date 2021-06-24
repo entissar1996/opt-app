@@ -28,7 +28,7 @@ import { MenuComponent } from "./menu/menu.component";
 import { MatMenuModule } from '@angular/material/menu';
 import { MaterialModule } from './shared/material/material.module';
 import { NgSelectModule } from '@ng-select/ng-select';
-import { RegisterComponent } from './register/register.component';
+import { RegisterComponent } from './users/register/register.component';
 import { LoginComponent } from './login/login.component';
 @NgModule({
   declarations: [
