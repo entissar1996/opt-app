@@ -6,6 +6,7 @@
 
 
     <span class="spacer"></span>
+
     <button *ngIf="(currentUser$ | async)?.role ==='GUEST'" mat-menu-item><a routerLink="/profile">Mon profil</a></button>
     <button *ngIf="(currentUser$ | async)?.role ==='ADMIN'" mat-menu-item><a routerLink="/listeuser">Dashboard</a></button>
 

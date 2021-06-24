@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { RegisterComponent } from './users/register/register.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './shared/material/home/home.component';
-import { ProfileComponent } from './users/profile/profile.component';
+import { ProfileComponent } from './profile/profile.component';
 import { BoardUserComponent } from './board-user/board-user.component';
 
 import { ListproductsComponent } from "./admin/listproducts/listproducts.component";

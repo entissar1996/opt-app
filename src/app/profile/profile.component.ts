@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from 'src/app/_services/auth/user.service';
 import { environment } from 'src/environments/environment';
-import { TokenStorageService } from '../../_services/auth/token-storage.service';
+import { TokenStorageService } from '../_services/auth/token-storage.service';
 
 @Component({
   selector: 'app-profile',

@@ -10,18 +10,16 @@ import adapter from 'webrtc-adapter';
 })
 
 export class ProductTryOnComponent implements OnInit {
-public video:HTMLElement;
-public canvas:HTMLElement;
-public overlay:HTMLElement;
+
 
 
  constructor(){
 }
-
+    video = document.getElementById( "webcam" );
+    canvas =  document.getElementById( "output" );
+    overlay = document.getElementById( "overlay" );
 async ngOnInit(){
-    this.video =await document.getElementById( "webcam" );
-    this.canvas = await document.getElementById( "output" );
-    this.overlay =await document.getElementById( "overlay" );
+
      await Render.setup(this.video,this.canvas,this.overlay);
   }
 

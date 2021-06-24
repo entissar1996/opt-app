@@ -37,9 +37,9 @@ import { LoginComponent } from './login/login.component';
     BoardAdminComponent,
     BoardUserComponent,
     SliderComponent,
-    MenuComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    MenuComponent
 
   ],
   imports: [
