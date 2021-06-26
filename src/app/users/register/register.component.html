@@ -83,7 +83,7 @@
             </div>
           </mat-form-field>
           <mat-form-field class="display-block" appearance="outline"> <mat-label>Mot de passe</mat-label>
-            <input matInput  formControlName="password" required >
+            <input type="password" matInput  formControlName="password" required >
             <div *ngIf="registerForm.get('password').invalid &&
                   registerForm.get('password').errors &&
                   (registerForm.get('password').dirty || registerForm.get('password').touched)">
@@ -93,6 +93,7 @@
                   </small>
 
             </div>
+
           </mat-form-field>
 
 

@@ -1,78 +1,19 @@
+<div class="cc">
 <div class="container d-flex justify-content-center mt-100">
   <div class="row">
-      <div class="col-md-3">
+      <div class="col-md-3"  *ngFor="let data of Products">
           <div class="product-wrapper mb-45 text-center">
-              <div class="product-img"> <a href="#" data-abc="true"> <img src="../assets/img/lunette chloé.jpg" alt="lunette cholé" style="width:300px;height:200px;"> </a> <span class="text-center"> 143,000</span>
-                  <div class="product-action">
-                      <div class="product-action-style"><a href="#"> <i class="fa fa-heart"></i> </a> <a href="#"> <i class="fa fa-shopping-cart"></i> </a> </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-      <div class="col-md-3" >
-          <div class="product-wrapper mb-45 text-center">
-              <div class="product-img"> <a href="#" data-abc="true"> <img src="../assets/img/tom-ford.jpg" alt="lunette tom-ford" style="width:300px;height:200px;"> </a> <span>320,000</span>
-                  <div >
-                      <div class="product-action-style"><a class="action-heart" title="Wishlist" href="#" data-abc="true"> <i class="fa fa-heart"></i> </a> <a class="action-cart" title="Add To Cart" href="#" data-abc="true"> <i class="fa fa-shopping-cart"></i> </a> </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-      <div class="col-md-3">
-          <div class="product-wrapper mb-45 text-center">
-              <div class="product-img"> <a href="#" data-abc="true"> <img src="../assets/img/ray-ban.jpg"  alt="" style="width:300px;height:200px;"> </a> <span>433,000</span>
-                  <div class="product-action">
-                      <div class="product-action-style"> <a class="action-heart" title="Wishlist" href="#" data-abc="true"> <i class="fa fa-heart"></i> </a> <a class="action-cart" title="Add To Cart" href="#" data-abc="true"> <i class="fa fa-shopping-cart"></i> </a> </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-      <div class="col-md-3">
-          <div class="product-wrapper mb-45 text-center">
-              <div class="product-img"> <a href="#" data-abc="true"> <img src="../assets/img/nike.jpg" alt="lunette tom-ford" style="width:300px;height:200px;"> </a> <span>320,000</span>
-                  <div class="product-action">
-                      <div class="product-action-style"><a class="action-heart" title="Wishlist" href="#" data-abc="true"> <i class="fa fa-heart"></i> </a> <a class="action-cart" title="Add To Cart" href="#" data-abc="true"> <i class="fa fa-shopping-cart"></i> </a> </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-      <div class="col-md-3">
-          <div class="product-wrapper mb-45 text-center">
-              <div class="product-img"> <a href="#" data-abc="true"> <img src="../assets/img/giorgio-armani.jpg" alt="lunette tom-ford" style="width:300px;height:200px;"> </a> <span>320,000</span>
-                  <div class="product-action">
-                      <div class="product-action-style"><a class="action-heart" title="Wishlist" href="#" data-abc="true"> <i class="fa fa-heart"></i> </a> <a class="action-cart" title="Add To Cart" href="#" data-abc="true"> <i class="fa fa-shopping-cart"></i> </a> </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-      <div class="col-md-3">
-          <div class="product-wrapper mb-45 text-center">
-              <div class="product-img"> <a href="#" data-abc="true"> <img src="../assets/img/giorgio.jpg" alt="lunette tom-ford" style="width:300px;height:200px;"> </a> <span>320,000</span>
-                  <div class="product-action">
-                      <div class="product-action-style"><a class="action-heart" title="Wishlist" href="#" data-abc="true"> <i class="fa fa-heart"></i> </a> <a class="action-cart" title="Add To Cart" href="#" data-abc="true"> <i class="fa fa-shopping-cart"></i> </a> </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-      <div class="col-md-3">
-          <div class="product-wrapper mb-45 text-center">
-              <div class="product-img"> <a href="#" data-abc="true"> <img src="../assets/img/persol.jpg" alt="lunette tom-ford" style="width:300px;height:200px;"> </a> <span>320,000</span>
-                  <div class="product-action">
-                      <div class="product-action-style"><a class="action-heart" title="Wishlist" href="#" data-abc="true"> <i class="fa fa-heart"></i> </a> <a class="action-cart" title="Add To Cart" href="#" data-abc="true"> <i class="fa fa-shopping-cart"></i> </a> </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-      <div class="col-md-3">
-          <div class="product-wrapper mb-45 text-center">
-              <div class="product-img"> <a href="#" data-abc="true"> <img src="../assets/img/giorgio3.jpg" alt="lunette tom-ford" style="width:300px;height:200px;"> </a> <span>320,000</span>
-                  <div class="product-action">
-                      <div class="product-action-style"><a class="action-heart" title="Wishlist" href="#" data-abc="true"> <i class="fa fa-heart"></i> </a> <a class="action-cart" title="Add To Cart" href="#" data-abc="true"> <i class="fa fa-shopping-cart"></i> </a> </div>
-                  </div>
-              </div>
-          </div>
-      </div>
+            <div class="product-img"> <a href="#" data-abc="true"> <img [src]="getUrl(data.photo)" alt="photo" style="width:300px;height:200px;"> </a> <span class="text-center"> <del *ngIf="data.pricepromo > 0">{{data.price | currency:'TND ':false}}</del></span>
+              <div id="cercle" *ngIf="data.pricepromo > 0">{{data.pricepromo}}</div>
 
+              <div class="product-action">
+                      <div class="product-action-style">  <a [routerLink]="['/add-card/',data._id]"> <i class="fa fa-shopping-cart"></i> </a> </div>
+                  </div>
+              </div>
+          </div>
+      </div>
 
   </div>
 </div>
+<input type="color" id="head" name="head"
+value="#e66465">

@@ -48,7 +48,7 @@ export class AddproductsComponent implements OnInit {
   ) {
     this.ProductForm = this.formBuilder.group({
     label:['', Validators.required],
-    couleur:['#ffffff', Validators.required],
+    color:['#ffffff', Validators.required],
     brand:['', Validators.required],
     categorie:['', Validators.required],
     pricepromo:['', Validators.required],

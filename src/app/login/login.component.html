@@ -2,6 +2,7 @@
   <mat-card-title>Connectez-vous à votre compte</mat-card-title>
   <mat-card-content>
         <form [formGroup]="loginForm" class="personal-information" >
+          <div class="alert alert-danger text-center" role="alert" *ngIf="errorMessage">verifier le mot de passe ou email</div>
 
           <mat-form-field class="display-block" appearance="outline">
             <mat-label>Email</mat-label>
@@ -15,7 +16,9 @@
                      Ce champ est obligatoire
                   </small>
 
+
             </div>
+
           </mat-form-field>
           <mat-form-field class="display-block" appearance="outline">
             <mat-label>Mot de passe</mat-label>

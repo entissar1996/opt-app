@@ -28,6 +28,8 @@ import { CardproductComponent } from './users/cardproduct/cardproduct.component'
 import { ProductDetailComponent } from './users/product-detail/product-detail.component';
 import { MenuComponent } from './menu/menu.component';
 import { UserBadgeComponent } from './admin/user-badge/user-badge.component';
+import { AddCartComponent } from './users/add-cart/add-cart.component';
+import { AddMarqueComponent } from './admin/add-marque/add-marque.component';
 const routes: Routes = [
 
 
@@ -67,11 +69,13 @@ const routes: Routes = [
   { path: 'upload', component:UploaderComponent  },
   { path: 'dashbord', component:WidgetsComponent  },
   { path: 'listeuser', component:ListuserComponent  },
-  { path: 'listcategories', component:AddcategoryComponent  },
+  { path: 'addcategory', component:AddcategoryComponent  },
   { path: 'product-detail', component:ProductDetailComponent  },
   { path: 'addcategory', component:AddcategoryComponent  },
-
   { path: 'editproduct/:id', component:EditproductComponent  },
+  { path: 'add-cart/:id', component:AddCartComponent , canActivate: [AuthGuard]  },
+  { path: 'addmarque', component:AddMarqueComponent },
+
 
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];

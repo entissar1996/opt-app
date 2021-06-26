@@ -6,54 +6,53 @@ import { MatSidenav } from '@angular/material/sidenav';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { ConfirmationDialogComponent } from 'src/app/admin/confirmation-dialog/confirmation-dialog.component';
+import { ConfirmationDialogComponent } from 'src/app/users/confirmation-dialog/confirmation-dialog.component';
 import { IApiResponse } from 'src/app/_models/api-response.model';
-import { Marque } from 'src/app/_models/marque';
-import { CategoryService } from 'src/app/_services/category/category.service';
 import { MarqueService } from 'src/app/_services/marques/marque.service';
 import { environment } from 'src/environments/environment';
 import { UploaderService } from '../uploader.service';
 import { UploaderComponent } from '../uploader/uploader.component';
+import { UploadmarqueComponent } from '../uploadmarque/uploadmarque.component';
 
 @Component({
-  selector: 'app-addcategory',
-  templateUrl: './addcategory.component.html',
-  styleUrls: ['./addcategory.component.scss']
+  selector: 'app-add-marque',
+  templateUrl: './add-marque.component.html',
+  styleUrls: ['./add-marque.component.scss']
 })
-export class AddcategoryComponent implements OnInit {
+export class AddMarqueComponent implements OnInit {
 
-  ProductData: any = [];
-  dataSource: MatTableDataSource<CategoryService>;
+  marqueData: any = [];
+  dataSource: MatTableDataSource<MarqueService>;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild('sidenav') public sidenav: MatSidenav;
   isExpanded = true;
   showSubmenu: boolean = false;
   isShowing = false;
   showSubSubMenu: boolean = false;
-  ProductForm: FormGroup;
+  marqueForm: FormGroup;
   private subscription: Subscription;
   errorMessage;
   successMessage;
   displayedColumns: string[] = [
-    'label','actions'
+    'label','logo','actions'
   ];
 
   constructor(
     public formBuilder: FormBuilder,
     private router: Router,
-    private productService: CategoryService,
+    private marqueService: MarqueService,
     public uploadService:UploaderService,
     public dialog: MatDialog,
 
 
   ) {
-    this.ProductForm = this.formBuilder.group({
+    this.marqueForm = this.formBuilder.group({
     label:['', Validators.required],
 
     }),
-    this.productService.getAllCategorys().subscribe(data => {
-      this.ProductData = data.payload;
-      this.dataSource = new MatTableDataSource<CategoryService>(this.ProductData);
+    this.marqueService.getAllMarques().subscribe(data => {
+      this.marqueData = data.payload;
+      this.dataSource = new MatTableDataSource<MarqueService>(this.marqueData);
       console.log(this.dataSource);
 
       setTimeout(() => {
@@ -66,7 +65,7 @@ export class AddcategoryComponent implements OnInit {
 
 
   onSubmit(): void{
-    this.subscription=this.productService.postCategory(this.ProductForm.value).subscribe({
+    this.subscription=this.marqueService.postMarque(this.marqueForm.value).subscribe({
       next: (response) => {
         this.errorMessage = null;
       this.successMessage = '';
@@ -91,20 +90,20 @@ export class AddcategoryComponent implements OnInit {
 
   }
 
-  deleteProduct(id){
+  deletemarque(id){
     const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
       width: '450px',
       data: "Confirmez-vous la suppression de cet produit ?  "
     });
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-       this.productService.deleteCategory(id).subscribe({
+       this.marqueService.deleteMarque(id).subscribe({
          next:(response:IApiResponse)=>{
-          this.router.navigateByUrl('/listcategories');
+          this.router.navigateByUrl('/addmarque');
 
          },
          error:(error)=>{
-          this.router.navigateByUrl('/listcategories');
+          this.router.navigateByUrl('/addmarque');
 
          },
          complete:()=>null
@@ -114,7 +113,24 @@ export class AddcategoryComponent implements OnInit {
 
 }
 
+getUrl(url){
+  return `${environment.baseUri}/uploadsmarque/${url}`;
+}
 
+uploadPhoto(id:string){
+console.log("from list ",id)
+const dialogConfig = new MatDialogConfig();
+dialogConfig.disableClose = true;
+dialogConfig.autoFocus = true;
+dialogConfig.width="70%";
+dialogConfig.height="50%";
+dialogConfig.data=id;
+
+let dialogRef = this.dialog.open(UploadmarqueComponent, {data:{id:id}});
+dialogRef.afterClosed().subscribe(console.log);
+
+
+}
 
 
   mouseenter() {

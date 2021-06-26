@@ -6,18 +6,20 @@
 
 
     <span class="spacer"></span>
-
+    {{
+      (currentUser$ | async)?.role
+    }}
     <button *ngIf="(currentUser$ | async)?.role ==='GUEST'" mat-menu-item><a routerLink="/profile">Mon profil</a></button>
     <button *ngIf="(currentUser$ | async)?.role ==='ADMIN'" mat-menu-item><a routerLink="/listeuser">Dashboard</a></button>
 
-      <mat-icon class="shopping-icon"><a routerLink="">add_shopping_cart</a></mat-icon>
+      <mat-icon class="shopping-icon"><a routerLink="/add-card">add_shopping_cart</a></mat-icon>
 
       <a  mat-button  [matMenuTriggerFor]="aboveMenu"><mat-icon mat-icon class="person-icon">person</mat-icon></a>
 
 <mat-menu #aboveMenu="matMenu" yPosition="above">
           <button *ngIf="!connected" mat-menu-item ><a routerLink="/login">Connexion</a></button>
           <button mat-menu-item><a routerLink="/register">S'inscrire</a></button>
-          <button *ngIf="connected" (click)="logout()" mat-menu-item><a routerLink="/login">Déconnexion</a></button>
+          <button *ngIf="connected" (click)="logout()" mat-menu-item><a routerLink="/home">Déconnexion</a></button>
 
         </mat-menu>
 

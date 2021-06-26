@@ -20,6 +20,7 @@ import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-
 import { ListuserComponent } from './listuser/listuser.component';
 import { AddcategoryComponent } from './addcategory/addcategory.component';
 import { NgSelectModule } from '@ng-select/ng-select';
+import { UploadmarqueComponent } from './uploadmarque/uploadmarque.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { NgSelectModule } from '@ng-select/ng-select';
     EditproductComponent,
     UserBadgeComponent,
     ConfirmationDialogComponent,
-    ListuserComponent
+    ListuserComponent,
+    UploadmarqueComponent,
   ],
   imports: [
     CommonModule,

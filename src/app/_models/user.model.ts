@@ -1,13 +1,13 @@
 export interface User{
-  nom?: string;
-  prenom?:string;
-  email: string;
-  password: string;
-  phone?: string;
-  ville?:string;
-  adresse:string;
-  role?: string;
-  token?: string;
+  nom?: String;
+  prenom?:String;
+  email: String;
+  password: String;
+  phone?: String;
+  ville?:String;
+  adresse:String;
+  role?: String;
+  token?: String;
 }
 
 

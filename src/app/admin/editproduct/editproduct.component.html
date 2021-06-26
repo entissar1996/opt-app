@@ -10,22 +10,20 @@
 			<div class="submenu" [ngClass]="{'expanded' : showSubmenu}" *ngIf="isShowing || isExpanded">
 				<a mat-list-item routerLink="/addproduct">Ajout un produit</a>
 				<a mat-list-item routerLink="/listproduct">Liste du produits</a>
-        <a mat-list-item routerLink="/listproduct">Liste des commandes</a>
+        <a mat-list-item routerLink="/listcommande">Liste des commandes</a>
 				<mat-list-item (click)="showSubSubMenu = !showSubSubMenu" class="parent">
 					<span class="full-width" *ngIf="isExpanded || isShowing">Categories</span>
 					<mat-icon class="menu-button" [ngClass]="{'rotated' : showSubSubMenu}" *ngIf="isExpanded || isShowing">expand_more</mat-icon>
 				</mat-list-item>
 				<div class="submenu" [ngClass]="{'expanded' : showSubSubMenu}" *ngIf="isShowing || isExpanded">
-					<mat-list-item>Ajout un categorie</mat-list-item>
-					<mat-list-item>List categories</mat-list-item>
+					<mat-list-item routerLink="/addcategory">Liste de categories</mat-list-item>
 				</div>
         <mat-list-item (click)="showSubSubMenu = !showSubSubMenu" class="parent">
 					<span class="full-width" *ngIf="isExpanded || isShowing">Marques</span>
 					<mat-icon class="menu-button" [ngClass]="{'rotated' : showSubSubMenu}" *ngIf="isExpanded || isShowing">expand_more</mat-icon>
 				</mat-list-item>
 				<div class="submenu" [ngClass]="{'expanded' : showSubSubMenu}" *ngIf="isShowing || isExpanded">
-					<mat-list-item>Ajout un marque</mat-list-item>
-					<mat-list-item>Lists des marque</mat-list-item>
+					<mat-list-item routerLink="/addmarque">Liste de marque</mat-list-item>
 				</div>
 			</div>
 
@@ -39,9 +37,11 @@
         <mat-icon>menu</mat-icon>
       </button>
       Dashboard
+
       <span class="toolbar-spacer"></span>
-      <a routerLink="/logout"><mat-icon>person</mat-icon></a>
-      <a routerLink="/logout"><mat-icon>logout</mat-icon></a>
+      <a routerLink="/home"><mat-icon>logout</mat-icon></a>
+
+
 
 
     </mat-toolbar>

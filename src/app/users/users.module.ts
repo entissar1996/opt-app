@@ -9,6 +9,8 @@ import { CardproductComponent } from './cardproduct/cardproduct.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { ConsulteProfilComponent } from './consulte-profil/consulte-profil.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
+import { AddCartComponent } from './add-cart/add-cart.component';
+import { AddMarqueComponent } from '../admin/add-marque/add-marque.component';
 
 
 @NgModule({
@@ -18,6 +20,8 @@ import { EditProfileComponent } from './edit-profile/edit-profile.component';
     ProductDetailComponent,
     ConsulteProfilComponent,
     EditProfileComponent,
+    AddCartComponent,
+    AddMarqueComponent
 
   ],
   imports: [

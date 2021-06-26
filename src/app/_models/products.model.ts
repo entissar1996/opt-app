@@ -5,7 +5,9 @@ export interface IProduct{
   quantity?: Number,
   brand?: String,
   categorie?:String,
-  couleur?:String,
+  color?:String,
   photo: String,
-  pricepromo?:String
+  pricepromo?:String,
+  model3D?:String,
+  token?: String;
 }

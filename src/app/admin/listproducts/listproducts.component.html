@@ -1,6 +1,6 @@
 <mat-sidenav-container fullscreen>
   <mat-sidenav mode="side" #sidenav opened position="start" style="background-color: #E7DEE8;">
-    <img src="assets/1819.png" alt="avatar" class="avatar">
+    <img src="assets/1819.png" alt="photo" class="photo">
     <mat-nav-list>
 			<mat-list-item (click)="showSubmenu = !showSubmenu" class="parent">
 				<span class="full-width" *ngIf="isExpanded || isShowing">Produits</span>
@@ -10,22 +10,20 @@
 			<div class="submenu" [ngClass]="{'expanded' : showSubmenu}" *ngIf="isShowing || isExpanded">
 				<a mat-list-item routerLink="/addproduct">Ajout un produit</a>
 				<a mat-list-item routerLink="/listproduct">Liste du produits</a>
-        <a mat-list-item routerLink="/listproduct">Liste des commandes</a>
+        <a mat-list-item routerLink="/listcommande">Liste des commandes</a>
 				<mat-list-item (click)="showSubSubMenu = !showSubSubMenu" class="parent">
 					<span class="full-width" *ngIf="isExpanded || isShowing">Categories</span>
 					<mat-icon class="menu-button" [ngClass]="{'rotated' : showSubSubMenu}" *ngIf="isExpanded || isShowing">expand_more</mat-icon>
 				</mat-list-item>
 				<div class="submenu" [ngClass]="{'expanded' : showSubSubMenu}" *ngIf="isShowing || isExpanded">
-					<mat-list-item>Ajout un categorie</mat-list-item>
-					<mat-list-item>List categories</mat-list-item>
+					<mat-list-item routerLink="/addcategory">Liste de categories</mat-list-item>
 				</div>
         <mat-list-item (click)="showSubSubMenu = !showSubSubMenu" class="parent">
 					<span class="full-width" *ngIf="isExpanded || isShowing">Marques</span>
 					<mat-icon class="menu-button" [ngClass]="{'rotated' : showSubSubMenu}" *ngIf="isExpanded || isShowing">expand_more</mat-icon>
 				</mat-list-item>
 				<div class="submenu" [ngClass]="{'expanded' : showSubSubMenu}" *ngIf="isShowing || isExpanded">
-					<mat-list-item>Ajout un marque</mat-list-item>
-					<mat-list-item>Lists des marque</mat-list-item>
+					<mat-list-item routerLink="/addmarque">Liste de marque</mat-list-item>
 				</div>
 			</div>
 
@@ -39,9 +37,10 @@
         <mat-icon>menu</mat-icon>
       </button>
       Dashboard
+
       <span class="toolbar-spacer"></span>
-      <a routerLink="/logout"><mat-icon>person</mat-icon></a>
-      <a routerLink="/logout"><mat-icon>logout</mat-icon></a>
+      <a routerLink="/home"><mat-icon>logout</mat-icon></a>
+
 
 
     </mat-toolbar>
@@ -54,25 +53,25 @@
       <div class="mat-elevation-z8">
         <mat-table [dataSource]="dataSource">
           <ng-container matColumnDef="label">
-            <th mat-header-cell *matHeaderCellDef> Label </th>
+            <th mat-header-cell *matHeaderCellDef> Étiquette </th>
             <td mat-cell *matCellDef="let element"> {{element?.label}} </td>
           </ng-container>
 
           <ng-container matColumnDef="brand">
-            <th mat-header-cell *matHeaderCellDef> Brand </th>
-            <td mat-cell *matCellDef="let element"> {{element?.brand}} </td>
+            <th mat-header-cell *matHeaderCellDef> Marque </th>
+            <td mat-cell *matCellDef="let element"> {{element?.brand.label}} </td>
           </ng-container>
           <ng-container matColumnDef="price">
-            <th mat-header-cell *matHeaderCellDef> Price </th>
+            <th mat-header-cell *matHeaderCellDef> Prix </th>
             <td mat-cell *matCellDef="let element"> {{element?.price}} </td>
           </ng-container>
           <ng-container matColumnDef="quantity">
-            <th mat-header-cell *matHeaderCellDef> Qyantity </th>
+            <th mat-header-cell *matHeaderCellDef> Quantité </th>
             <td mat-cell *matCellDef="let element"> {{element?.quantity}} </td>
           </ng-container>
 
          <ng-container matColumnDef="price_promo">
-            <th mat-header-cell *matHeaderCellDef> Promotianal Price</th>
+            <th mat-header-cell *matHeaderCellDef>  Prix Promotianel</th>
             <td mat-cell *matCellDef="let element"> {{element?.pricepromo}} </td>
           </ng-container>
 
@@ -97,7 +96,7 @@
           <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
         </mat-table>
 
-        <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+        <mat-paginator [pageSizeOptions]="[10, 15, 30]" showFirstLastButtons></mat-paginator>
       </div>
     </div>
 
@@ -108,55 +107,3 @@
 
 </mat-sidenav-container>
 
-<div class="container">
-<p *ngIf="ProductData.length <= 0" class="no-data">Il n'y a pas encore de produit ajouté !</p>
-
-<div class="container" *ngIf="ProductData.length > 0">
-  <div class="mat-elevation-z8">
-    <mat-table [dataSource]="dataSource">
-      <ng-container matColumnDef="label">
-        <th mat-header-cell *matHeaderCellDef> Label </th>
-        <td mat-cell *matCellDef="let element"> {{element?.label}} </td>
-      </ng-container>
-
-      <ng-container matColumnDef="brand">
-        <th mat-header-cell *matHeaderCellDef> Marque </th>
-        <td mat-cell *matCellDef="let element"> {{element?.label}} </td>
-      </ng-container>
-      <ng-container matColumnDef="price">
-        <th mat-header-cell *matHeaderCellDef> Price </th>
-        <td mat-cell *matCellDef="let element"> {{element?.price}} </td>
-      </ng-container>
-      <ng-container matColumnDef="quantity">
-        <th mat-header-cell *matHeaderCellDef> Qyantity </th>
-        <td mat-cell *matCellDef="let element"> {{element?.quantity}} </td>
-      </ng-container>
-
-     <ng-container matColumnDef="price_promo">
-        <th mat-header-cell *matHeaderCellDef> Promotianal Price</th>
-        <td mat-cell *matCellDef="let element"> {{element?.pricepromo}} </td>
-      </ng-container>
-
-      <ng-container matColumnDef="photo">
-        <th mat-header-cell *matHeaderCellDef> Photo</th>
-        <td mat-cell *matCellDef="let element">
-          <button  (click)="uploadPhoto(element.id)"><img [src]="getUrl(element.photo)" alt="photo" class="photo"></button>
-
-        </td>
-      </ng-container>
-
-      <ng-container matColumnDef="actions">
-        <th mat-header-cell *matHeaderCellDef> Actions </th>
-        <td mat-cell *matCellDef="let element">
-          <button  mat-button color="primary" [routerLink]="['/editproduct/',element.id]"><mat-icon>edit</mat-icon></button>
-          <button  mat-button color="warn" (click)="deleteProduct(element.id)"><mat-icon>delete</mat-icon></button>
-        </td>
-      </ng-container>
-
-
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-    </mat-table>
-
-    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
-  </div>

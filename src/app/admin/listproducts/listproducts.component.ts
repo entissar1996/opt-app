@@ -86,12 +86,14 @@ export class ListproductsComponent implements OnInit {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
-    dialogConfig.width="50%";
+    dialogConfig.width="70%";
     dialogConfig.height="50%";
     dialogConfig.data=id;
 
     let dialogRef = this.dialog.open(UploaderComponent, {data:{id:id}});
-    dialogRef.afterClosed().subscribe(console.log)
+    dialogRef.afterClosed().subscribe(console.log);
+
+
   }
   mouseenter() {
     if (!this.isExpanded) {

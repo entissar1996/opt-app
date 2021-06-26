@@ -1,0 +1,43 @@
+<h1 class="mb-8 text-3xl text-center">Upload</h1>
+<mat-dialog-content class="flex flex-col h-full">
+    <div class="flex flex-col align-center">
+        <form class="px-3 pt-6 pb-8 mb-4 bg-white">
+            <mat-label class="upload-button">
+                <mat-icon matSuffix>
+                    upload_file
+                </mat-icon>
+                <input type="file" #file style="display: none" (change)="onFileAdded()" silgle>
+            </mat-label>
+
+            <button [disabled]="uploading || uploadSuccessful" mat-raised-button color="primary" class="add-files-btn"
+                (click)="addFile()">
+                Select File
+            </button>
+
+            <mat-list>
+                <mat-list-item *ngFor="let file of files">
+                    <h4 mat-line>{{file.name}}</h4>
+                    <mat-progress-bar *ngIf="progress" mode="determinate"
+                        [value]="progress[file.name].progress | async">
+                    </mat-progress-bar>
+                </mat-list-item>
+            </mat-list>
+        </form>
+
+
+
+        <mat-dialog-actions class="flex flex-row justify-between py-5">
+            <div class="flex items-center">
+                <button mat-raised-button color="warn" (click)="close()" *ngIf="showCancelButton">
+                    Cancel
+                </button>
+            </div>
+            <div class="flex items-center">
+                <button mat-raised-button color="primary" [disabled]="!canBeClosed"
+                    (click)="closeDialog()">
+                    {{primaryButtonText}}
+                </button>
+            </div>
+
+        </mat-dialog-actions>
+    </div>
