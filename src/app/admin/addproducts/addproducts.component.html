@@ -71,16 +71,41 @@
                   </mat-option>
                 </mat-select>
                 </mat-form-field>
-                <mat-form-field >
+
+                  <mat-form-field >
+                <mat-label>Categories</mat-label>
+                <mat-select formControlName="categories" multiple>
+                  <mat-option  *ngFor="let element of CatetData" [value]="element._id">
+                {{element?.label}}
+                  </mat-option>
+                </mat-select>
+                </mat-form-field>
+
+              <mat-form-filed>
+                <mat-label>Couleur</mat-label>
+                <div *ngFor="let value of colors; let i = index">
+                  <input type="color" formControlName="color" >
+                  <button (click)="removevalue(i)"> <mat-icon>clear</mat-icon> </button>
+                </div>
+                <button mat-raised-button color="accent" (click)="addvalue()">ajout couleur</button>
+
+              </mat-form-filed>
+
+
+
+
+
+
+                <!--    <mat-form-field >
                   <mat-label>Categorie</mat-label>
-                  <mat-select formControlName="categorie" >
+                  <mat-select formControlName="categories" >
                     <mat-option  *ngFor="let element of CatetData" [value]="element._id">
                       {{element?.label}}
                     </mat-option>
                   </mat-select>
                   </mat-form-field>
                   <mat-form-field class="display-block">
-                    <input type="color" matInput placeholder="color" formControlName="color" required >
+                    <input type="color" matInput placeholder="color" formControlName="color"  multiple required >
                     <div *ngIf="ProductForm.get('color').invalid &&
                     ProductForm.get('color').errors &&
                     (ProductForm.get('color').dirty || ProductForm.get('color').touched)">
@@ -90,29 +115,8 @@
                 </small>
 
             </div>
-                  </mat-form-field>
- <!--
-                <mat-form-field>
+                  </mat-form-field>-->
 
-                  <input matInput [ngxMatColorPicker]="picker" [formControl]="couleur" [disabled]="disabled">
-                  <ngx-mat-color-toggle matSuffix [for]="picker"></ngx-mat-color-toggle>
-                  <ngx-mat-color-picker #picker [touchUi]="touchUi" [color]="color"></ngx-mat-color-picker>
-
-                </mat-form-field>
-
-              <mat-form-field class="display-block">
-                <input matInput placeholder="brand" formControlName="brand" required >
-                <div *ngIf="ProductForm.get('brand').invalid &&
-                      ProductForm.get('brand').errors &&
-                      (ProductForm.get('brand').dirty || ProductForm.get('brand').touched)">
-                      <small class="text-danger"
-                        *ngIf="ProductForm.get('brand').hasError('required')">
-                         Ce champ est obligatoire
-                      </small>
-
-                </div>
-              </mat-form-field>
-            -->
               <mat-form-field class="display-block">
                 <input matInput placeholder="Description" formControlName="description" required >
                 <div *ngIf="ProductForm.get('description').invalid &&
@@ -188,6 +192,5 @@
 
 
 </mat-sidenav-container>
-
 
 

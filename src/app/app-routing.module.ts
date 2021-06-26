@@ -30,6 +30,8 @@ import { MenuComponent } from './menu/menu.component';
 import { UserBadgeComponent } from './admin/user-badge/user-badge.component';
 import { AddCartComponent } from './users/add-cart/add-cart.component';
 import { AddMarqueComponent } from './admin/add-marque/add-marque.component';
+import { I } from '@angular/cdk/keycodes';
+import { SingleProductComponent} from "./users/single-product/single-product.component";
 const routes: Routes = [
 
 
@@ -73,8 +75,9 @@ const routes: Routes = [
   { path: 'product-detail', component:ProductDetailComponent  },
   { path: 'addcategory', component:AddcategoryComponent  },
   { path: 'editproduct/:id', component:EditproductComponent  },
-  { path: 'add-cart/:id', component:AddCartComponent , canActivate: [AuthGuard]  },
+  { path: 'add-cart/:id', component:AddCartComponent ,   },
   { path: 'addmarque', component:AddMarqueComponent },
+  { path: 'singleproduct/:id', component:SingleProductComponent},
 
 
   { path: '', redirectTo: 'home', pathMatch: 'full' }

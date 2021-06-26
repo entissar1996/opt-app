@@ -25,6 +25,7 @@ export interface Subject {
   styleUrls: ['./addproducts.component.scss']
 })
 export class AddproductsComponent implements OnInit {
+  colors :any=[];
   CatedataSource :MatTableDataSource<Category>;
   CatetData: any = [];
   ProductData: any = [];
@@ -48,9 +49,9 @@ export class AddproductsComponent implements OnInit {
   ) {
     this.ProductForm = this.formBuilder.group({
     label:['', Validators.required],
-    color:['#ffffff', Validators.required],
+    color:[[''], Validators.required],
     brand:['', Validators.required],
-    categorie:['', Validators.required],
+    categories:['', Validators.required],
     pricepromo:['', Validators.required],
     description: ['', Validators.required],
     price: [null, Validators.required],
@@ -73,6 +74,15 @@ export class AddproductsComponent implements OnInit {
   }
 
   ngOnInit() { }
+
+  removevalue(i){
+    this.colors.splice(i,1);
+  }
+
+  addvalue(){
+    this.colors.push({});
+
+  }
 
 
   onSubmit(): void{
@@ -111,5 +121,11 @@ export class AddproductsComponent implements OnInit {
       this.isShowing = false;
     }
   }
+
+
+
+
+
+
 
 }

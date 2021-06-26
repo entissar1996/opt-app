@@ -11,6 +11,7 @@ import { ConsulteProfilComponent } from './consulte-profil/consulte-profil.compo
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { AddCartComponent } from './add-cart/add-cart.component';
 import { AddMarqueComponent } from '../admin/add-marque/add-marque.component';
+import { SingleProductComponent } from './single-product/single-product.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { AddMarqueComponent } from '../admin/add-marque/add-marque.component';
     ConsulteProfilComponent,
     EditProfileComponent,
     AddCartComponent,
-    AddMarqueComponent
+    AddMarqueComponent,
+    SingleProductComponent
 
   ],
   imports: [

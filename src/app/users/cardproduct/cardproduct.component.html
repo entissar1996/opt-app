@@ -1,13 +1,14 @@
+
 <div class="cc">
 <div class="container d-flex justify-content-center mt-100">
   <div class="row">
       <div class="col-md-3"  *ngFor="let data of Products">
           <div class="product-wrapper mb-45 text-center">
-            <div class="product-img"> <a href="#" data-abc="true"> <img [src]="getUrl(data.photo)" alt="photo" style="width:300px;height:200px;"> </a> <span class="text-center"> <del *ngIf="data.pricepromo > 0">{{data.price | currency:'TND ':false}}</del></span>
+            <div class="product-img"> <a [routerLink]="['/singleproduct',data._id]" data-abc="true"> <img [src]="getUrl(data.photo)" alt="photo" style="width:300px;height:200px;"> </a> <span class="text-center"> <del *ngIf="data.pricepromo > 0">{{data.price | currency:'TND ':false}}</del></span>
               <div id="cercle" *ngIf="data.pricepromo > 0">{{data.pricepromo}}</div>
 
               <div class="product-action">
-                      <div class="product-action-style">  <a [routerLink]="['/add-card/',data._id]"> <i class="fa fa-shopping-cart"></i> </a> </div>
+                      <div class="product-action-style">  <a [routerLink]="['/add-cart/',data._id]"> <i class="fa fa-shopping-cart"></i> </a> </div>
                   </div>
               </div>
           </div>
@@ -15,5 +16,3 @@
 
   </div>
 </div>
-<input type="color" id="head" name="head"
-value="#e66465">

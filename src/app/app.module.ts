@@ -30,6 +30,7 @@ import { MaterialModule } from './shared/material/material.module';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { RegisterComponent } from './users/register/register.component';
 import { LoginComponent } from './login/login.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -65,6 +66,7 @@ import { LoginComponent } from './login/login.component';
     MaterialModule,
     AdminModule,
     NgSelectModule,
+
 
    ],
   providers: [authInterceptorProviders],
